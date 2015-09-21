@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TabBarController.h
 //  CaiPu
 //
 //  Created by MS on 15/9/21.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface TabBarController : UITabBarController
 
 @end
-

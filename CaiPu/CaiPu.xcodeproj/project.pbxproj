@@ -10,11 +10,18 @@
 		4EC4017B1BAF94D700E4AF65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC4017A1BAF94D700E4AF65 /* main.m */; };
 		4EC4017E1BAF94D700E4AF65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC4017D1BAF94D700E4AF65 /* AppDelegate.m */; };
 		4EC401811BAF94D700E4AF65 /* CaiPu.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EC4017F1BAF94D700E4AF65 /* CaiPu.xcdatamodeld */; };
-		4EC401841BAF94D700E4AF65 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401831BAF94D700E4AF65 /* ViewController.m */; };
 		4EC401871BAF94D700E4AF65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC401851BAF94D700E4AF65 /* Main.storyboard */; };
 		4EC401891BAF94D700E4AF65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EC401881BAF94D700E4AF65 /* Images.xcassets */; };
 		4EC4018C1BAF94D700E4AF65 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC4018A1BAF94D700E4AF65 /* LaunchScreen.xib */; };
 		4EC401981BAF94D700E4AF65 /* CaiPuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401971BAF94D700E4AF65 /* CaiPuTests.m */; };
+		4EC401A61BAFA29700E4AF65 /* 2014081421510285285.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EC401A51BAFA29700E4AF65 /* 2014081421510285285.jpg */; };
+		4EC401A91BAFBC8A00E4AF65 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401A81BAFBC8A00E4AF65 /* TabBarController.m */; };
+		4EC401AF1BAFC77000E4AF65 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401AE1BAFC77000E4AF65 /* HomeViewController.m */; };
+		4EC401B21BAFC85400E4AF65 /* Feedback ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401B11BAFC85400E4AF65 /* Feedback ViewController.m */; };
+		4EC401B51BAFC8AE00E4AF65 /* Dish rackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401B41BAFC8AE00E4AF65 /* Dish rackViewController.m */; };
+		4EC401BB1BAFC93900E4AF65 /* CharacteristicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401BA1BAFC93900E4AF65 /* CharacteristicViewController.m */; };
+		4EC401BE1BAFCA4E00E4AF65 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401BD1BAFCA4E00E4AF65 /* SearchViewController.m */; };
+		4EC401C11BAFCAC400E4AF65 /* Details of dishesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401C01BAFCAC400E4AF65 /* Details of dishesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,14 +41,27 @@
 		4EC4017C1BAF94D700E4AF65 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4EC4017D1BAF94D700E4AF65 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4EC401801BAF94D700E4AF65 /* CaiPu.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CaiPu.xcdatamodel; sourceTree = "<group>"; };
-		4EC401821BAF94D700E4AF65 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4EC401831BAF94D700E4AF65 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4EC401861BAF94D700E4AF65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4EC401881BAF94D700E4AF65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4EC401881BAF94D700E4AF65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CaiPu/Images.xcassets; sourceTree = "<group>"; };
 		4EC4018B1BAF94D700E4AF65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4EC401911BAF94D700E4AF65 /* CaiPuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaiPuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC401961BAF94D700E4AF65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EC401971BAF94D700E4AF65 /* CaiPuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaiPuTests.m; sourceTree = "<group>"; };
+		4EC401A51BAFA29700E4AF65 /* 2014081421510285285.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2014081421510285285.jpg; path = ../../../2014081421510285285.jpg; sourceTree = "<group>"; };
+		4EC401A71BAFBC8A00E4AF65 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		4EC401A81BAFBC8A00E4AF65 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		4EC401AD1BAFC77000E4AF65 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		4EC401AE1BAFC77000E4AF65 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		4EC401B01BAFC85400E4AF65 /* Feedback ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Feedback ViewController.h"; sourceTree = "<group>"; };
+		4EC401B11BAFC85400E4AF65 /* Feedback ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Feedback ViewController.m"; sourceTree = "<group>"; };
+		4EC401B31BAFC8AE00E4AF65 /* Dish rackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Dish rackViewController.h"; sourceTree = "<group>"; };
+		4EC401B41BAFC8AE00E4AF65 /* Dish rackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Dish rackViewController.m"; sourceTree = "<group>"; };
+		4EC401B91BAFC93900E4AF65 /* CharacteristicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacteristicViewController.h; sourceTree = "<group>"; };
+		4EC401BA1BAFC93900E4AF65 /* CharacteristicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacteristicViewController.m; sourceTree = "<group>"; };
+		4EC401BC1BAFCA4E00E4AF65 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		4EC401BD1BAFCA4E00E4AF65 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		4EC401BF1BAFCAC400E4AF65 /* Details of dishesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Details of dishesViewController.h"; sourceTree = "<group>"; };
+		4EC401C01BAFCAC400E4AF65 /* Details of dishesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Details of dishesViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +85,9 @@
 		4EC4016C1BAF94D700E4AF65 = {
 			isa = PBXGroup;
 			children = (
+				4EC401A41BAF97A700E4AF65 /* Medel */,
+				4EC401A31BAF977900E4AF65 /* Controller */,
+				4EC401A21BAF975400E4AF65 /* Uititlis */,
 				4EC401771BAF94D700E4AF65 /* CaiPu */,
 				4EC401941BAF94D700E4AF65 /* CaiPuTests */,
 				4EC401761BAF94D700E4AF65 /* Products */,
@@ -85,12 +108,6 @@
 			children = (
 				4EC4017C1BAF94D700E4AF65 /* AppDelegate.h */,
 				4EC4017D1BAF94D700E4AF65 /* AppDelegate.m */,
-				4EC401821BAF94D700E4AF65 /* ViewController.h */,
-				4EC401831BAF94D700E4AF65 /* ViewController.m */,
-				4EC401851BAF94D700E4AF65 /* Main.storyboard */,
-				4EC401881BAF94D700E4AF65 /* Images.xcassets */,
-				4EC4018A1BAF94D700E4AF65 /* LaunchScreen.xib */,
-				4EC4017F1BAF94D700E4AF65 /* CaiPu.xcdatamodeld */,
 				4EC401781BAF94D700E4AF65 /* Supporting Files */,
 			);
 			path = CaiPu;
@@ -99,6 +116,8 @@
 		4EC401781BAF94D700E4AF65 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4EC401A51BAFA29700E4AF65 /* 2014081421510285285.jpg */,
+				4EC4017F1BAF94D700E4AF65 /* CaiPu.xcdatamodeld */,
 				4EC401791BAF94D700E4AF65 /* Info.plist */,
 				4EC4017A1BAF94D700E4AF65 /* main.m */,
 			);
@@ -120,6 +139,44 @@
 				4EC401961BAF94D700E4AF65 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4EC401A21BAF975400E4AF65 /* Uititlis */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Uititlis;
+			sourceTree = "<group>";
+		};
+		4EC401A31BAF977900E4AF65 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4EC401A71BAFBC8A00E4AF65 /* TabBarController.h */,
+				4EC401A81BAFBC8A00E4AF65 /* TabBarController.m */,
+				4EC401AD1BAFC77000E4AF65 /* HomeViewController.h */,
+				4EC401AE1BAFC77000E4AF65 /* HomeViewController.m */,
+				4EC401B01BAFC85400E4AF65 /* Feedback ViewController.h */,
+				4EC401B11BAFC85400E4AF65 /* Feedback ViewController.m */,
+				4EC401B31BAFC8AE00E4AF65 /* Dish rackViewController.h */,
+				4EC401B41BAFC8AE00E4AF65 /* Dish rackViewController.m */,
+				4EC401B91BAFC93900E4AF65 /* CharacteristicViewController.h */,
+				4EC401BA1BAFC93900E4AF65 /* CharacteristicViewController.m */,
+				4EC401BC1BAFCA4E00E4AF65 /* SearchViewController.h */,
+				4EC401BD1BAFCA4E00E4AF65 /* SearchViewController.m */,
+				4EC401BF1BAFCAC400E4AF65 /* Details of dishesViewController.h */,
+				4EC401C01BAFCAC400E4AF65 /* Details of dishesViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4EC401A41BAF97A700E4AF65 /* Medel */ = {
+			isa = PBXGroup;
+			children = (
+				4EC401851BAF94D700E4AF65 /* Main.storyboard */,
+				4EC401881BAF94D700E4AF65 /* Images.xcassets */,
+				4EC4018A1BAF94D700E4AF65 /* LaunchScreen.xib */,
+			);
+			name = Medel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EC401871BAF94D700E4AF65 /* Main.storyboard in Resources */,
+				4EC401A61BAFA29700E4AF65 /* 2014081421510285285.jpg in Resources */,
 				4EC4018C1BAF94D700E4AF65 /* LaunchScreen.xib in Resources */,
 				4EC401891BAF94D700E4AF65 /* Images.xcassets in Resources */,
 			);
@@ -223,9 +281,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EC4017E1BAF94D700E4AF65 /* AppDelegate.m in Sources */,
+				4EC401BB1BAFC93900E4AF65 /* CharacteristicViewController.m in Sources */,
 				4EC401811BAF94D700E4AF65 /* CaiPu.xcdatamodeld in Sources */,
-				4EC401841BAF94D700E4AF65 /* ViewController.m in Sources */,
+				4EC401A91BAFBC8A00E4AF65 /* TabBarController.m in Sources */,
+				4EC401C11BAFCAC400E4AF65 /* Details of dishesViewController.m in Sources */,
+				4EC401BE1BAFCA4E00E4AF65 /* SearchViewController.m in Sources */,
 				4EC4017B1BAF94D700E4AF65 /* main.m in Sources */,
+				4EC401B51BAFC8AE00E4AF65 /* Dish rackViewController.m in Sources */,
+				4EC401B21BAFC85400E4AF65 /* Feedback ViewController.m in Sources */,
+				4EC401AF1BAFC77000E4AF65 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +318,7 @@
 				4EC401861BAF94D700E4AF65 /* Base */,
 			);
 			name = Main.storyboard;
+			path = CaiPu;
 			sourceTree = "<group>";
 		};
 		4EC4018A1BAF94D700E4AF65 /* LaunchScreen.xib */ = {
@@ -262,6 +327,7 @@
 				4EC4018B1BAF94D700E4AF65 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = CaiPu;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -422,6 +488,7 @@
 				4EC4019D1BAF94D700E4AF65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EC4019E1BAF94D700E4AF65 /* Build configuration list for PBXNativeTarget "CaiPuTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +497,7 @@
 				4EC401A01BAF94D700E4AF65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

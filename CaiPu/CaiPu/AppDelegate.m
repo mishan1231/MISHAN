@@ -17,6 +17,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];//初始化窗口，设置主场景
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];//获取
+    self.window.rootViewController =
+    [storyboard instantiateViewControllerWithIdentifier:@"123"];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
