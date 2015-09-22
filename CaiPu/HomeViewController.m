@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 
 @interface HomeViewController ()
+- (IBAction)foodbutton:(UIButton *)sender forEvent:(UIEvent *)event;
 
 @end
 
@@ -34,4 +35,6 @@
 }
 */
 
+- (IBAction)foodbutton:(UIButton *)sender forEvent:(UIEvent *)event {
+}
 @end

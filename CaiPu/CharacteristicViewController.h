@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CharacteristicViewController : UIViewController
+@interface CharacteristicViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDelegateFlowLayout> {
+    NSInteger count;
+}
+
+
+
+
+
+
 
 @end

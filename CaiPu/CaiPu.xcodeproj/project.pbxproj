@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E8BE7711BB000F30055CA99 /* CharacteristicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8BE7701BB000F30055CA99 /* CharacteristicViewController.m */; };
+		4EA8214B1BB1316400497563 /* RecommendationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA8214A1BB1316400497563 /* RecommendationViewController.m */; };
 		4EC4017B1BAF94D700E4AF65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC4017A1BAF94D700E4AF65 /* main.m */; };
 		4EC4017E1BAF94D700E4AF65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC4017D1BAF94D700E4AF65 /* AppDelegate.m */; };
 		4EC401811BAF94D700E4AF65 /* CaiPu.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EC4017F1BAF94D700E4AF65 /* CaiPu.xcdatamodeld */; };
@@ -14,14 +16,17 @@
 		4EC401891BAF94D700E4AF65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EC401881BAF94D700E4AF65 /* Images.xcassets */; };
 		4EC4018C1BAF94D700E4AF65 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC4018A1BAF94D700E4AF65 /* LaunchScreen.xib */; };
 		4EC401981BAF94D700E4AF65 /* CaiPuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401971BAF94D700E4AF65 /* CaiPuTests.m */; };
-		4EC401A61BAFA29700E4AF65 /* 2014081421510285285.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EC401A51BAFA29700E4AF65 /* 2014081421510285285.jpg */; };
 		4EC401A91BAFBC8A00E4AF65 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401A81BAFBC8A00E4AF65 /* TabBarController.m */; };
 		4EC401AF1BAFC77000E4AF65 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401AE1BAFC77000E4AF65 /* HomeViewController.m */; };
 		4EC401B21BAFC85400E4AF65 /* Feedback ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401B11BAFC85400E4AF65 /* Feedback ViewController.m */; };
-		4EC401B51BAFC8AE00E4AF65 /* Dish rackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401B41BAFC8AE00E4AF65 /* Dish rackViewController.m */; };
-		4EC401BB1BAFC93900E4AF65 /* CharacteristicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401BA1BAFC93900E4AF65 /* CharacteristicViewController.m */; };
 		4EC401BE1BAFCA4E00E4AF65 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401BD1BAFCA4E00E4AF65 /* SearchViewController.m */; };
-		4EC401C11BAFCAC400E4AF65 /* Details of dishesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401C01BAFCAC400E4AF65 /* Details of dishesViewController.m */; };
+		4ECCEB201BB122C6009E1468 /* DishRackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECCEB1F1BB122C6009E1468 /* DishRackViewController.m */; };
+		4ECCEB231BB12328009E1468 /* DetailsOfDishesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECCEB221BB12328009E1468 /* DetailsOfDishesViewController.m */; };
+		4EF7D5E41BB0DECB0081EA9C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF7D5E31BB0DECB0081EA9C /* SystemConfiguration.framework */; };
+		4EF7D5E61BB0DF190081EA9C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF7D5E51BB0DF190081EA9C /* AudioToolbox.framework */; };
+		4EF7D5E81BB0DF380081EA9C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF7D5E71BB0DF380081EA9C /* libsqlite3.dylib */; };
+		4EF7D5EB1BB0DF990081EA9C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF7D5E91BB0DF990081EA9C /* Bolts.framework */; };
+		4EF7D5EC1BB0DF990081EA9C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF7D5EA1BB0DF990081EA9C /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E8BE76F1BB000F30055CA99 /* CharacteristicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacteristicViewController.h; sourceTree = "<group>"; };
+		4E8BE7701BB000F30055CA99 /* CharacteristicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacteristicViewController.m; sourceTree = "<group>"; };
+		4E8BE7751BB0025E0055CA99 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		4EA821491BB1316400497563 /* RecommendationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendationViewController.h; sourceTree = "<group>"; };
+		4EA8214A1BB1316400497563 /* RecommendationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendationViewController.m; sourceTree = "<group>"; };
 		4EC401751BAF94D700E4AF65 /* CaiPu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaiPu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC401791BAF94D700E4AF65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EC4017A1BAF94D700E4AF65 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,21 +57,23 @@
 		4EC401911BAF94D700E4AF65 /* CaiPuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaiPuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC401961BAF94D700E4AF65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EC401971BAF94D700E4AF65 /* CaiPuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaiPuTests.m; sourceTree = "<group>"; };
-		4EC401A51BAFA29700E4AF65 /* 2014081421510285285.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2014081421510285285.jpg; path = ../../../2014081421510285285.jpg; sourceTree = "<group>"; };
 		4EC401A71BAFBC8A00E4AF65 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		4EC401A81BAFBC8A00E4AF65 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		4EC401AD1BAFC77000E4AF65 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		4EC401AE1BAFC77000E4AF65 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		4EC401B01BAFC85400E4AF65 /* Feedback ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Feedback ViewController.h"; sourceTree = "<group>"; };
 		4EC401B11BAFC85400E4AF65 /* Feedback ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Feedback ViewController.m"; sourceTree = "<group>"; };
-		4EC401B31BAFC8AE00E4AF65 /* Dish rackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Dish rackViewController.h"; sourceTree = "<group>"; };
-		4EC401B41BAFC8AE00E4AF65 /* Dish rackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Dish rackViewController.m"; sourceTree = "<group>"; };
-		4EC401B91BAFC93900E4AF65 /* CharacteristicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacteristicViewController.h; sourceTree = "<group>"; };
-		4EC401BA1BAFC93900E4AF65 /* CharacteristicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacteristicViewController.m; sourceTree = "<group>"; };
-		4EC401BC1BAFCA4E00E4AF65 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		4EC401BD1BAFCA4E00E4AF65 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		4EC401BF1BAFCAC400E4AF65 /* Details of dishesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Details of dishesViewController.h"; sourceTree = "<group>"; };
-		4EC401C01BAFCAC400E4AF65 /* Details of dishesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Details of dishesViewController.m"; sourceTree = "<group>"; };
+		4ECCEB1E1BB122C6009E1468 /* DishRackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishRackViewController.h; sourceTree = "<group>"; };
+		4ECCEB1F1BB122C6009E1468 /* DishRackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishRackViewController.m; sourceTree = "<group>"; };
+		4ECCEB211BB12328009E1468 /* DetailsOfDishesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsOfDishesViewController.h; sourceTree = "<group>"; };
+		4ECCEB221BB12328009E1468 /* DetailsOfDishesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsOfDishesViewController.m; sourceTree = "<group>"; };
+		4EF7D5E31BB0DECB0081EA9C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4EF7D5E51BB0DF190081EA9C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		4EF7D5E71BB0DF380081EA9C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		4EF7D5E91BB0DF990081EA9C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		4EF7D5EA1BB0DF990081EA9C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		4EF7D5ED1BB0E2860081EA9C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +81,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EF7D5EB1BB0DF990081EA9C /* Bolts.framework in Frameworks */,
+				4EF7D5EC1BB0DF990081EA9C /* Parse.framework in Frameworks */,
+				4EF7D5E81BB0DF380081EA9C /* libsqlite3.dylib in Frameworks */,
+				4EF7D5E61BB0DF190081EA9C /* AudioToolbox.framework in Frameworks */,
+				4EF7D5E41BB0DECB0081EA9C /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +102,11 @@
 		4EC4016C1BAF94D700E4AF65 = {
 			isa = PBXGroup;
 			children = (
+				4EF7D5E71BB0DF380081EA9C /* libsqlite3.dylib */,
+				4EF7D5E91BB0DF990081EA9C /* Bolts.framework */,
+				4EF7D5EA1BB0DF990081EA9C /* Parse.framework */,
+				4EF7D5E51BB0DF190081EA9C /* AudioToolbox.framework */,
+				4EF7D5E31BB0DECB0081EA9C /* SystemConfiguration.framework */,
 				4EC401A41BAF97A700E4AF65 /* Medel */,
 				4EC401A31BAF977900E4AF65 /* Controller */,
 				4EC401A21BAF975400E4AF65 /* Uititlis */,
@@ -116,8 +138,8 @@
 		4EC401781BAF94D700E4AF65 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4EC401A51BAFA29700E4AF65 /* 2014081421510285285.jpg */,
 				4EC4017F1BAF94D700E4AF65 /* CaiPu.xcdatamodeld */,
+				4EF7D5ED1BB0E2860081EA9C /* PrefixHeader.pch */,
 				4EC401791BAF94D700E4AF65 /* Info.plist */,
 				4EC4017A1BAF94D700E4AF65 /* main.m */,
 			);
@@ -157,14 +179,16 @@
 				4EC401AE1BAFC77000E4AF65 /* HomeViewController.m */,
 				4EC401B01BAFC85400E4AF65 /* Feedback ViewController.h */,
 				4EC401B11BAFC85400E4AF65 /* Feedback ViewController.m */,
-				4EC401B31BAFC8AE00E4AF65 /* Dish rackViewController.h */,
-				4EC401B41BAFC8AE00E4AF65 /* Dish rackViewController.m */,
-				4EC401B91BAFC93900E4AF65 /* CharacteristicViewController.h */,
-				4EC401BA1BAFC93900E4AF65 /* CharacteristicViewController.m */,
-				4EC401BC1BAFCA4E00E4AF65 /* SearchViewController.h */,
+				4E8BE7751BB0025E0055CA99 /* SearchViewController.h */,
 				4EC401BD1BAFCA4E00E4AF65 /* SearchViewController.m */,
-				4EC401BF1BAFCAC400E4AF65 /* Details of dishesViewController.h */,
-				4EC401C01BAFCAC400E4AF65 /* Details of dishesViewController.m */,
+				4E8BE76F1BB000F30055CA99 /* CharacteristicViewController.h */,
+				4E8BE7701BB000F30055CA99 /* CharacteristicViewController.m */,
+				4ECCEB1E1BB122C6009E1468 /* DishRackViewController.h */,
+				4ECCEB1F1BB122C6009E1468 /* DishRackViewController.m */,
+				4ECCEB211BB12328009E1468 /* DetailsOfDishesViewController.h */,
+				4ECCEB221BB12328009E1468 /* DetailsOfDishesViewController.m */,
+				4EA821491BB1316400497563 /* RecommendationViewController.h */,
+				4EA8214A1BB1316400497563 /* RecommendationViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -260,7 +284,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EC401871BAF94D700E4AF65 /* Main.storyboard in Resources */,
-				4EC401A61BAFA29700E4AF65 /* 2014081421510285285.jpg in Resources */,
 				4EC4018C1BAF94D700E4AF65 /* LaunchScreen.xib in Resources */,
 				4EC401891BAF94D700E4AF65 /* Images.xcassets in Resources */,
 			);
@@ -281,13 +304,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EC4017E1BAF94D700E4AF65 /* AppDelegate.m in Sources */,
-				4EC401BB1BAFC93900E4AF65 /* CharacteristicViewController.m in Sources */,
+				4ECCEB201BB122C6009E1468 /* DishRackViewController.m in Sources */,
 				4EC401811BAF94D700E4AF65 /* CaiPu.xcdatamodeld in Sources */,
 				4EC401A91BAFBC8A00E4AF65 /* TabBarController.m in Sources */,
-				4EC401C11BAFCAC400E4AF65 /* Details of dishesViewController.m in Sources */,
+				4E8BE7711BB000F30055CA99 /* CharacteristicViewController.m in Sources */,
+				4EA8214B1BB1316400497563 /* RecommendationViewController.m in Sources */,
 				4EC401BE1BAFCA4E00E4AF65 /* SearchViewController.m in Sources */,
 				4EC4017B1BAF94D700E4AF65 /* main.m in Sources */,
-				4EC401B51BAFC8AE00E4AF65 /* Dish rackViewController.m in Sources */,
+				4ECCEB231BB12328009E1468 /* DetailsOfDishesViewController.m in Sources */,
 				4EC401B21BAFC85400E4AF65 /* Feedback ViewController.m in Sources */,
 				4EC401AF1BAFC77000E4AF65 /* HomeViewController.m in Sources */,
 			);
@@ -419,6 +443,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CaiPu/PrefixHeader.pch;
 				INFOPLIST_FILE = CaiPu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -429,6 +459,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CaiPu/PrefixHeader.pch;
 				INFOPLIST_FILE = CaiPu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
