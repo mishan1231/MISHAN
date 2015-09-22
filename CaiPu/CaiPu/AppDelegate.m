@@ -23,6 +23,9 @@
     self.window.rootViewController =
     [storyboard instantiateViewControllerWithIdentifier:@"123"];
     [self.window makeKeyAndVisible];
+   
+    [Parse setApplicationId:@"uaRIMV1nme5mAhn65pOjiFh1A8egiKQYKJHErYcJ" clientKey:@"wQY15uNdBde4ojtxet81bQdFurmI3HNMsEt2OnFg"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     return YES;
 }
 

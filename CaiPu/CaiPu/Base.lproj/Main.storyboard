@@ -7,7 +7,7 @@
         <!--意见反馈-->
         <scene sceneID="7xV-7X-aEK">
             <objects>
-                <viewController id="XcB-BP-4hl" customClass="Feedback_ViewController" sceneMemberID="viewController">
+                <viewController id="XcB-BP-4hl" customClass="FeedbackViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OsP-jA-mAe"/>
                         <viewControllerLayoutGuide type="bottom" id="1Sj-zi-5xG"/>
@@ -16,26 +16,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="waE-EP-unQ">
-                                <rect key="frame" x="20" y="90" width="284" height="200"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="i 力量尽快了解" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="waE-EP-unQ">
+                                <rect key="frame" x="15" y="262" width="290" height="151"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="CwQ-Da-Ub9"/>
-                                    <constraint firstAttribute="width" constant="284" id="gp9-w7-v9b"/>
+                                    <constraint firstAttribute="height" constant="151" id="CwQ-Da-Ub9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5i-MJ-XU0">
+                                <rect key="frame" x="20" y="458" width="280" height="30"/>
+                                <color key="backgroundColor" white="0.92894222861842102" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="确定">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Feedbutton:forEvent:" destination="XcB-BP-4hl" eventType="touchUpInside" id="FjK-hv-KCi"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="温馨提示：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJ3-0s-Ixt">
+                                <rect key="frame" x="20" y="84" width="75" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="尊敬的顾客！如果您对本店有什么想法或者建议 请在下面留下您宝贵的建议（或意见）  本店会更具您的宝贵建议（或意见）不断的更改提升，更好地为您服务！再次感谢您的光临 ！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vv-Jo-HeG">
+                                <rect key="frame" x="16" y="110" width="289" height="131"/>
+                                <color key="backgroundColor" white="0.92894222859999998" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="131" id="qcP-hz-XME"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="waE-EP-unQ" firstAttribute="leading" secondItem="hes-qz-2VU" secondAttribute="leading" constant="20" id="FzQ-eg-HLt"/>
-                            <constraint firstItem="waE-EP-unQ" firstAttribute="top" secondItem="hes-qz-2VU" secondAttribute="top" constant="90" id="XJY-tv-d8c"/>
+                            <constraint firstAttribute="trailing" secondItem="8vv-Jo-HeG" secondAttribute="trailing" constant="15" id="3Up-3H-lQE"/>
+                            <constraint firstItem="h5i-MJ-XU0" firstAttribute="top" secondItem="waE-EP-unQ" secondAttribute="bottom" constant="45" id="G6f-1C-vKl"/>
+                            <constraint firstItem="8vv-Jo-HeG" firstAttribute="leading" secondItem="hes-qz-2VU" secondAttribute="leading" constant="16" id="GFU-Cv-Vm5"/>
+                            <constraint firstItem="oJ3-0s-Ixt" firstAttribute="leading" secondItem="hes-qz-2VU" secondAttribute="leading" constant="20" id="Oif-jh-SIx"/>
+                            <constraint firstItem="waE-EP-unQ" firstAttribute="leading" secondItem="hes-qz-2VU" secondAttribute="leading" constant="15" id="QEB-zK-jII"/>
+                            <constraint firstItem="h5i-MJ-XU0" firstAttribute="leading" secondItem="hes-qz-2VU" secondAttribute="leading" constant="20" id="cTy-3s-cqc"/>
+                            <constraint firstItem="oJ3-0s-Ixt" firstAttribute="top" secondItem="OsP-jA-mAe" secondAttribute="bottom" constant="20" id="iR2-8g-iYC"/>
+                            <constraint firstAttribute="trailing" secondItem="waE-EP-unQ" secondAttribute="trailing" constant="15" id="lDd-FC-FEF"/>
+                            <constraint firstAttribute="trailing" secondItem="h5i-MJ-XU0" secondAttribute="trailing" constant="20" id="nov-xj-ncG"/>
+                            <constraint firstAttribute="centerX" secondItem="waE-EP-unQ" secondAttribute="centerX" id="nuU-uI-1cw"/>
+                            <constraint firstItem="waE-EP-unQ" firstAttribute="top" secondItem="8vv-Jo-HeG" secondAttribute="bottom" constant="21" id="r5i-ai-Mvf"/>
+                            <constraint firstItem="8vv-Jo-HeG" firstAttribute="top" secondItem="oJ3-0s-Ixt" secondAttribute="bottom" constant="8" id="y60-Mp-lH6"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="意见反馈" id="Nr2-Gj-l2k">
-                        <barButtonItem key="rightBarButtonItem" title="确定" id="GBO-IX-XAt"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="意见反馈" id="Nr2-Gj-l2k"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
@@ -183,6 +216,34 @@
                     <view key="view" contentMode="scaleToFill" id="XhJ-qo-j7a">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fhM-Yc-d2N">
+                                <rect key="frame" x="0.0" y="-6" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rNd-TL-68t">
+                                    <size key="itemSize" width="153" height="136"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="AC0-FA-Q8t">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="153" height="136"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ESE-6z-QtB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="153" height="136"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="特色推荐" id="tOg-EV-E2o"/>
@@ -375,7 +436,9 @@
                             <constraint firstAttribute="trailing" secondItem="wX1-ac-VmZ" secondAttribute="trailing" constant="8" id="zhF-PW-ZKV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="菜系详情" id="Zge-Zf-0P2"/>
+                    <navigationItem key="navigationItem" title="菜系详情" id="Zge-Zf-0P2">
+                        <barButtonItem key="rightBarButtonItem" title="菜架" id="P55-SL-A0Q"/>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
@@ -383,11 +446,11 @@
             </objects>
             <point key="canvasLocation" x="653" y="1929"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--特色推荐-->
         <scene sceneID="pZU-12-hwl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F1D-ds-Gyb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" id="a98-bN-0P4"/>
+                    <tabBarItem key="tabBarItem" title="特色推荐" id="a98-bN-0P4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="m87-d3-X5w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

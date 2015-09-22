@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E339AC11BB139BC004D0CAE /* storageMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E339ABE1BB139BC004D0CAE /* storageMgr.m */; };
+		4E339AC21BB139BC004D0CAE /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E339AC01BB139BC004D0CAE /* Utilities.m */; };
+		4E339AC51BB13A40004D0CAE /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E339AC41BB13A40004D0CAE /* FeedbackViewController.m */; };
 		4E8BE7711BB000F30055CA99 /* CharacteristicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8BE7701BB000F30055CA99 /* CharacteristicViewController.m */; };
 		4EA8214B1BB1316400497563 /* RecommendationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA8214A1BB1316400497563 /* RecommendationViewController.m */; };
 		4EC4017B1BAF94D700E4AF65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC4017A1BAF94D700E4AF65 /* main.m */; };
@@ -18,7 +21,6 @@
 		4EC401981BAF94D700E4AF65 /* CaiPuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401971BAF94D700E4AF65 /* CaiPuTests.m */; };
 		4EC401A91BAFBC8A00E4AF65 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401A81BAFBC8A00E4AF65 /* TabBarController.m */; };
 		4EC401AF1BAFC77000E4AF65 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401AE1BAFC77000E4AF65 /* HomeViewController.m */; };
-		4EC401B21BAFC85400E4AF65 /* Feedback ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401B11BAFC85400E4AF65 /* Feedback ViewController.m */; };
 		4EC401BE1BAFCA4E00E4AF65 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401BD1BAFCA4E00E4AF65 /* SearchViewController.m */; };
 		4ECCEB201BB122C6009E1468 /* DishRackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECCEB1F1BB122C6009E1468 /* DishRackViewController.m */; };
 		4ECCEB231BB12328009E1468 /* DetailsOfDishesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECCEB221BB12328009E1468 /* DetailsOfDishesViewController.m */; };
@@ -40,6 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E339ABD1BB139BC004D0CAE /* storageMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = storageMgr.h; sourceTree = "<group>"; };
+		4E339ABE1BB139BC004D0CAE /* storageMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = storageMgr.m; sourceTree = "<group>"; };
+		4E339ABF1BB139BC004D0CAE /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		4E339AC01BB139BC004D0CAE /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		4E339AC31BB13A40004D0CAE /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		4E339AC41BB13A40004D0CAE /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		4E8BE76F1BB000F30055CA99 /* CharacteristicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacteristicViewController.h; sourceTree = "<group>"; };
 		4E8BE7701BB000F30055CA99 /* CharacteristicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacteristicViewController.m; sourceTree = "<group>"; };
 		4E8BE7751BB0025E0055CA99 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
@@ -61,8 +69,6 @@
 		4EC401A81BAFBC8A00E4AF65 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		4EC401AD1BAFC77000E4AF65 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		4EC401AE1BAFC77000E4AF65 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		4EC401B01BAFC85400E4AF65 /* Feedback ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Feedback ViewController.h"; sourceTree = "<group>"; };
-		4EC401B11BAFC85400E4AF65 /* Feedback ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Feedback ViewController.m"; sourceTree = "<group>"; };
 		4EC401BD1BAFCA4E00E4AF65 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		4ECCEB1E1BB122C6009E1468 /* DishRackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishRackViewController.h; sourceTree = "<group>"; };
 		4ECCEB1F1BB122C6009E1468 /* DishRackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishRackViewController.m; sourceTree = "<group>"; };
@@ -166,6 +172,10 @@
 		4EC401A21BAF975400E4AF65 /* Uititlis */ = {
 			isa = PBXGroup;
 			children = (
+				4E339ABD1BB139BC004D0CAE /* storageMgr.h */,
+				4E339ABE1BB139BC004D0CAE /* storageMgr.m */,
+				4E339ABF1BB139BC004D0CAE /* Utilities.h */,
+				4E339AC01BB139BC004D0CAE /* Utilities.m */,
 			);
 			name = Uititlis;
 			sourceTree = "<group>";
@@ -177,12 +187,12 @@
 				4EC401A81BAFBC8A00E4AF65 /* TabBarController.m */,
 				4EC401AD1BAFC77000E4AF65 /* HomeViewController.h */,
 				4EC401AE1BAFC77000E4AF65 /* HomeViewController.m */,
-				4EC401B01BAFC85400E4AF65 /* Feedback ViewController.h */,
-				4EC401B11BAFC85400E4AF65 /* Feedback ViewController.m */,
 				4E8BE7751BB0025E0055CA99 /* SearchViewController.h */,
 				4EC401BD1BAFCA4E00E4AF65 /* SearchViewController.m */,
 				4E8BE76F1BB000F30055CA99 /* CharacteristicViewController.h */,
 				4E8BE7701BB000F30055CA99 /* CharacteristicViewController.m */,
+				4E339AC31BB13A40004D0CAE /* FeedbackViewController.h */,
+				4E339AC41BB13A40004D0CAE /* FeedbackViewController.m */,
 				4ECCEB1E1BB122C6009E1468 /* DishRackViewController.h */,
 				4ECCEB1F1BB122C6009E1468 /* DishRackViewController.m */,
 				4ECCEB211BB12328009E1468 /* DetailsOfDishesViewController.h */,
@@ -305,6 +315,7 @@
 			files = (
 				4EC4017E1BAF94D700E4AF65 /* AppDelegate.m in Sources */,
 				4ECCEB201BB122C6009E1468 /* DishRackViewController.m in Sources */,
+				4E339AC11BB139BC004D0CAE /* storageMgr.m in Sources */,
 				4EC401811BAF94D700E4AF65 /* CaiPu.xcdatamodeld in Sources */,
 				4EC401A91BAFBC8A00E4AF65 /* TabBarController.m in Sources */,
 				4E8BE7711BB000F30055CA99 /* CharacteristicViewController.m in Sources */,
@@ -312,7 +323,8 @@
 				4EC401BE1BAFCA4E00E4AF65 /* SearchViewController.m in Sources */,
 				4EC4017B1BAF94D700E4AF65 /* main.m in Sources */,
 				4ECCEB231BB12328009E1468 /* DetailsOfDishesViewController.m in Sources */,
-				4EC401B21BAFC85400E4AF65 /* Feedback ViewController.m in Sources */,
+				4E339AC21BB139BC004D0CAE /* Utilities.m in Sources */,
+				4E339AC51BB13A40004D0CAE /* FeedbackViewController.m in Sources */,
 				4EC401AF1BAFC77000E4AF65 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
