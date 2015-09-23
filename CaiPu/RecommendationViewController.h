@@ -12,6 +12,8 @@
     NSInteger count;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) NSArray *objectsForShow;
 
 
 @end

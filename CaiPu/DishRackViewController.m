@@ -226,20 +226,49 @@
                                  NSForegroundColorAttributeName:[UIColor brownColor]
                                  };
          
-         NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] init];
-         [attString appendAttributedString:[[NSAttributedString alloc] initWithString:first attributes:dictL]];
-         [attString appendAttributedString:[[NSAttributedString alloc] initWithString:second attributes:dictR]];
+   NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] init];
+   [attString appendAttributedString:[[NSAttributedString alloc] initWithString:first attributes:dictL]];
+    [attString appendAttributedString:[[NSAttributedString alloc] initWithString:second attributes:dictR]];
          return attString;
      }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)photoTapAtIndexPath:(NSIndexPath *)indexPath {
+   // ActivityObject *object = [_objectsForShow objectAtIndex:indexPath.row];
+    _zoomedIV = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    _zoomedIV.userInteractionEnabled = YES;
+    //_zoomedIV.image = [Utilities imageUrl:object.imgUrl];
+    _zoomedIV.contentMode = UIViewContentModeScaleAspectFit;
+    _zoomedIV.backgroundColor = [UIColor blackColor];
+    UITapGestureRecognizer *ivTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ivTap:)];
+    [_zoomedIV addGestureRecognizer:ivTap];
+    [[[UIApplication sharedApplication] keyWindow] addSubview:_zoomedIV];
 }
-*/
+- (void)ivTap:(UITapGestureRecognizer *)tap {
+    if (tap.state == UIGestureRecognizerStateRecognized) {
+        [_zoomedIV removeFromSuperview];
+        _zoomedIV = nil;
+    }
+}
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    ActivityObject *object = [_objectsForShow objectAtIndex:ip.row];
+    if (buttonIndex == 0) {
+        UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
+        [pasteBoard setString:object.name];
+    } else if (buttonIndex == 1) {
+        UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
+        [pasteBoard setString:object.content];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        if ([[_objectsForShow objectAtIndex:ip.row] applied]) {
+            [[_objectsForShow objectAtIndex:ip.row] setApplied:NO];
+        } else {
+            [[_objectsForShow objectAtIndex:ip.row] setApplied:YES];
+        }
+        [self.tableView reloadRowsAtIndexPaths:@[ip] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
 
 @end

@@ -285,6 +285,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="collectionView" destination="fhM-Yc-d2N" id="lWP-qh-IYJ"/>
+                        <outlet property="conllectionView" destination="fhM-Yc-d2N" id="Abc-Ie-Ef6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Xr-uU-7DP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -463,7 +464,7 @@
                                     <outlet property="delegate" destination="os7-KF-UUz" id="36n-2p-URR"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xd9-Nb-kAw">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xd9-Nb-kAw">
                                 <rect key="frame" x="240" y="479" width="60" height="30"/>
                                 <state key="normal" title="确定下单">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -607,7 +608,7 @@
         <scene sceneID="pZU-12-hwl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F1D-ds-Gyb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="特色推荐" image="01-2" id="a98-bN-0P4"/>
+                    <tabBarItem key="tabBarItem" title="特色推荐" image="627AD4CD-1FC0-4734-8563-2728FEDC9837" id="a98-bN-0P4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="m87-d3-X5w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -626,7 +627,7 @@
         <scene sceneID="ybj-kR-HET">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fro-zj-yHp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="意见反馈" image="01-3" id="l4X-cp-yce"/>
+                    <tabBarItem key="tabBarItem" title="意见反馈" image="C27788D5-AA51-4695-AB1E-7A0E976EB2A4" id="l4X-cp-yce"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZCp-cC-2dI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -645,7 +646,7 @@
         <scene sceneID="y7Y-yL-b1Z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="89h-tI-SsD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" image="01-1" id="sbh-cJ-WoW"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="2" id="sbh-cJ-WoW"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="c19-Vo-GUo">
@@ -702,12 +703,42 @@
         </scene>
     </scenes>
     <resources>
-        <image name="01-1" width="22" height="22"/>
-        <image name="01-2" width="22" height="22"/>
-        <image name="01-3" width="22" height="22"/>
+        <image name="2" width="22" height="22"/>
+        <image name="627AD4CD-1FC0-4734-8563-2728FEDC9837" width="22" height="22">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
+GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
+V05TQ29sb3KAAoAMEiTAAACAA4AKWHsyMiwgMjJ90hUKFhhaTlMub2JqZWN0c6EXgASACdIVChoYohsc
+gAWABoAJEAXTIAohIiMkV05TLmJhc2VbTlMucmVsYXRpdmWAAIAIgAdfEIBmaWxlOi8vL0FwcGxpY2F0
+aW9ucy9YY29kZSUyMDIuYXBwL0NvbnRlbnRzL1BsdWdJbnMvSURFSW50ZXJmYWNlQnVpbGRlcktpdC5p
+ZGVwbHVnaW4vQ29udGVudHMvUmVzb3VyY2VzL0lCTWlzc2luZ0ltYWdlR2x5cGgudGlmZtInKCkqWiRj
+bGFzc25hbWVYJGNsYXNzZXNVTlNVUkyiKStYTlNPYmplY3TSJygtLldOU0FycmF5oi0r0zAxCjIzNFdO
+U1doaXRlXE5TQ29sb3JTcGFjZUQwIDAAEAOAC9InKDY3V05TQ29sb3KiNivSJyg5OldOU0ltYWdlojkr
+XxAPTlNLZXllZEFyY2hpdmVy0T0+VHJvb3SAAQAIABEAGgAjAC0AMgA3AEUASwBWAF0AZABxAHgAgACC
+AIQAiQCLAI0AlgCbAKYAqACqAKwAsQC0ALYAuAC6ALwAwwDLANcA2QDbAN0BYAFlAXABeQF/AYIBiwGQ
+AZgBmwGiAaoBtwG8Ab4BwAHFAc0B0AHVAd0B4AHyAfUB+gAAAAAAAAIBAAAAAAAAAD8AAAAAAAAAAAAA
+AAAAAAH8A
+</mutableData>
+        </image>
+        <image name="C27788D5-AA51-4695-AB1E-7A0E976EB2A4" width="22" height="22">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
+GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
+V05TQ29sb3KAAoAMEiTAAACAA4AKWHsyMiwgMjJ90hUKFhhaTlMub2JqZWN0c6EXgASACdIVChoYohsc
+gAWABoAJEAXTIAohIiMkV05TLmJhc2VbTlMucmVsYXRpdmWAAIAIgAdfEIBmaWxlOi8vL0FwcGxpY2F0
+aW9ucy9YY29kZSUyMDIuYXBwL0NvbnRlbnRzL1BsdWdJbnMvSURFSW50ZXJmYWNlQnVpbGRlcktpdC5p
+ZGVwbHVnaW4vQ29udGVudHMvUmVzb3VyY2VzL0lCTWlzc2luZ0ltYWdlR2x5cGgudGlmZtInKCkqWiRj
+bGFzc25hbWVYJGNsYXNzZXNVTlNVUkyiKStYTlNPYmplY3TSJygtLldOU0FycmF5oi0r0zAxCjIzNFdO
+U1doaXRlXE5TQ29sb3JTcGFjZUQwIDAAEAOAC9InKDY3V05TQ29sb3KiNivSJyg5OldOU0ltYWdlojkr
+XxAPTlNLZXllZEFyY2hpdmVy0T0+VHJvb3SAAQAIABEAGgAjAC0AMgA3AEUASwBWAF0AZABxAHgAgACC
+AIQAiQCLAI0AlgCbAKYAqACqAKwAsQC0ALYAuAC6ALwAwwDLANcA2QDbAN0BYAFlAXABeQF/AYIBiwGQ
+AZgBmwGiAaoBtwG8Ab4BwAHFAc0B0AHVAd0B4AHyAfUB+gAAAAAAAAIBAAAAAAAAAD8AAAAAAAAAAAAA
+AAAAAAH8A
+</mutableData>
+        </image>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NC4-gb-TpP"/>
         <segue reference="gOa-ms-ZEL"/>
+        <segue reference="os0-1I-yek"/>
     </inferredMetricsTieBreakers>
 </document>
