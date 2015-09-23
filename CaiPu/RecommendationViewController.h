@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ContentCollectionViewCell.h"
+@interface RecommendationViewController : UIViewController< UICollectionViewDelegate, UICollectionViewDelegateFlowLayout> {
+    NSInteger count;
+}
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-@interface RecommendationViewController : UIViewController
 
 @end
