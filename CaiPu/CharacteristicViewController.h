@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CharacteristicViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDelegateFlowLayout> {
-    NSInteger count;
-}
+@interface CharacteristicViewController : UIViewController
 
 
 

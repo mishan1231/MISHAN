@@ -11,6 +11,7 @@
 #import "UIImageView+WebCache.h"
 @interface DishRackViewController ()
 
+
 @end
 
 @implementation DishRackViewController
@@ -51,40 +52,8 @@
     [self urlAction];
 }
 - (void)urlAction {
-    NSString *url = @"http://v0430.api.gym.yundongbang.com/event/list";
-    NSString *decodedUrl = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:loadCount], @"page", [NSNumber numberWithInteger:perPage], @"perPage", nil];
     
-    [[appAPIClient sharedClient] GET:decodedUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", responseObject);
-        if ([[responseObject objectForKey:@"resultFlag"] integerValue] == 8001) {
-            NSDictionary *resultDic = [responseObject objectForKey:@"result"];
-            NSArray *models = [resultDic objectForKey:@"models"];
-            if (loadCount == 1) {
-                _objectsForShow = nil;
-                _objectsForShow = [NSMutableArray new];
-            }
-            for (NSDictionary *dic in models) {
-                [_objectsForShow addObject:[[ActivityObject alloc] initWithDictionary:dic]];
-            }
-            NSDictionary *pageDic = [resultDic objectForKey:@"pagingInfo"];
-            totalPage = [[pageDic objectForKey:@"totalPage"] intValue];
-            [self.tableView reloadData];
-        } else {
-            [Utilities popUpAlertViewWithMsg:[responseObject objectForKey:@"message"] andTitle:nil];
-        }
-        [_aiv stopAnimating];
-        [self loadDataEnd];
-        UIRefreshControl *refreshControl = (UIRefreshControl *)[self.tableView viewWithTag:8001];
-        [refreshControl endRefreshing];
-    } failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
-        [_aiv stopAnimating];
-        [self loadDataEnd];
-        UIRefreshControl *refreshControl = (UIRefreshControl *)[self.tableView viewWithTag:8001];
-        [refreshControl endRefreshing];
-        [Utilities popUpAlertViewWithMsg:[error localizedDescription] andTitle:nil];
-    }];
-}
+   }
 - (void)uiConfiguration {
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     NSString *title = [NSString stringWithFormat:@"下拉即可刷新"];
@@ -115,7 +84,15 @@
          // Return the number of rows in the section.
          return _objectsForShow.count;
 }
-     - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //选中时候数组是否变色（该行变成未选中状态）
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    //页面更新数据
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
          ActivityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCell" forIndexPath:indexPath];
          if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
              [cell setSeparatorInset:UIEdgeInsetsZero];
@@ -129,7 +106,7 @@
          cell.delegate = self;
          ActivityObject *object = [_objectsForShow objectAtIndex:indexPath.row];
          cell.indexPath = indexPath;
-         [cell.PhotoView sd_setImageWithURL:[NSURL URLWithString:[object.imgUrl isKindOfClass:[NSNull class]] ? nil : object.imgUrl] placeholderImage:[UIImage imageNamed:@"Default"]];
+         [cell.PhotoView sd_setImageWithURL:[NSURL URLWithString:[object.imgUrl isKindOfClass:[NSNull class]] ? nil : object.imgUrl] placeholderImage:[UIImage imageNamed:@"image"]];
          cell.NameLabel.text = object.name;
          cell.ContentLabel.text = object.content;
          cell.LikeLabel.attributedText = [self setAttributedStringWithFirstText:@"👌:" andSecondText:[NSString stringWithFormat:@"%ld", (long)object.like]];
@@ -145,10 +122,10 @@
          return cell.ContentLabel.frame.origin.y + contentLabelSize.height + 10;
      }
      
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-     }
-     
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//         [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//     }
+
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
          if (scrollView.contentSize.height > scrollView.frame.size.height) {
              if (!loadingMore && scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.size.height)) {
@@ -271,4 +248,15 @@
 }
 
 
+- (IBAction)BianjiButton:(UIBarButtonItem *)sender {
+    if (++ count % 2 == 1) {
+        _tableView.allowsSelection = YES;
+        _editBarButtonItem.title = @"取消";
+    } else {
+        _tableView.allowsSelection = NO;
+        _editBarButtonItem.title = @"编辑";
+    }
+
+    
+}
 @end

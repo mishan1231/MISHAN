@@ -7,9 +7,9 @@
 //
 
 #import "HomeViewController.h"
-
+#import "HomeCell.h"
+#import "TabBarController.h"
 @interface HomeViewController ()
-- (IBAction)foodbutton:(UIButton *)sender forEvent:(UIEvent *)event;
 
 @end
 
@@ -18,24 +18,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //_collectionView.backgroundColor = [UIColor purpleColor];
     [self requestData];
+   // [self popUpHomeTab];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+/*- (void)popUpHomeTab {
+    TabBarController *tabVC = [Utilities getStoryboardInstanceByIdentity:@"Tab"];
+    UINavigationController *naviVC = [[UINavigationController alloc] initWithRootViewController:tabVC];
+    naviVC.navigationBarHidden = YES;
+}*/
 - (void)requestData {
     //查询Food表
     PFQuery *query = [PFQuery queryWithClassName:@"Food"];
     //执行查询
+    UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
     [query findObjectsInBackgroundWithBlock:^(NSArray *returnedObjects, NSError *error) {
+        [aiv stopAnimating];
         //完成时候的回调：returnedObjects数组；error错误信息
         if (!error) {
             //打印结果
             _objectsForShow = returnedObjects;
             NSLog(@"%@", _objectsForShow);
+            [_collectionView reloadData];
         } else {
             //打印错误
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -51,31 +61,56 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _objectsForShow.count;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    PFObject *object = [_objectsForShow objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"名称%@", object[@"name"]];
-    
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"价格：%@", object[@"price"]];
-    
-    return cell;
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
 
-
-- (IBAction)foodbutton:(UIButton *)sender forEvent:(UIEvent *)event {
-    
-    
-    
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return _objectsForShow.count;
 }
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    HomeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    PFObject *object = [_objectsForShow objectAtIndex:indexPath.row];
+    
+    UIView *bv = [[UIView alloc] init];
+    bv.backgroundColor = [UIColor lightGrayColor];
+    cell.backgroundView = bv;
+    UIView *sbv = [[UIView alloc] init];
+    sbv.backgroundColor = [UIColor orangeColor];
+    cell.selectedBackgroundView = sbv;
+    
+    PFFile *imgFile = object[@"image"];
+    [imgFile getDataInBackgroundWithBlock:^(NSData *photoData, NSError *error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:photoData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.image.image = image;
+            });
+        }
+    }];
+    cell.name.text = object[@"Name"];
+    cell.price.text = [NSString stringWithFormat:@"%@", object[@"price"]];
+    
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.view.frame.size.width / 2, self.view.frame.size.width / 2 + 40);
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsZero;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 0;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 0;
+}
+
 @end

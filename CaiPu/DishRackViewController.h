@@ -15,6 +15,7 @@
     NSInteger loadCount;
     NSInteger perPage;
     NSInteger totalPage;
+    NSInteger count;
 }
 
 @property (strong, nonatomic) UIImageView *zoomedIV;
@@ -22,6 +23,7 @@
 @property (strong, nonatomic) UIActivityIndicatorView *tableFooterAI;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editBarButtonItem;
 @property (strong, nonatomic) NSMutableArray *objectsForShow;
 
 @end

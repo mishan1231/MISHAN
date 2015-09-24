@@ -7,7 +7,7 @@
 //
 
 #import "RecommendationViewController.h"
-
+#import "HomeCell.h"
 @interface RecommendationViewController ()
 
 @end
@@ -17,13 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    count = 0;
-    
-    _collectionView.bounces = YES;
-    _collectionView.scrollEnabled = YES;
-    _collectionView.backgroundColor = [UIColor whiteColor];
-    _collectionView.allowsSelection = NO;
-    _collectionView.allowsMultipleSelection = YES;
+    [self requestData];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,8 +35,19 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return _objectsForShow.count;
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    ContentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
+    HomeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"recomendCell" forIndexPath:indexPath];
+    
+    PFObject *object = [_objectsForShow objectAtIndex:indexPath.row];
     
     UIView *bv = [[UIView alloc] init];
     bv.backgroundColor = [UIColor lightGrayColor];
@@ -50,13 +56,23 @@
     sbv.backgroundColor = [UIColor orangeColor];
     cell.selectedBackgroundView = sbv;
     
-    cell.photoImageView.image = [UIImage imageNamed:@"photo"];
+    PFFile *imgFile = object[@"image"];
+    [imgFile getDataInBackgroundWithBlock:^(NSData *photoData, NSError *error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:photoData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.image.image = image;
+            });
+        }
+    }];
+    cell.name.text = object[@"Name"];
+    cell.price.text = [NSString stringWithFormat:@"%@", object[@"price"]];
     
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(self.view.frame.size.width / 2, self.view.frame.size.width / 3);
+    return CGSizeMake(self.view.frame.size.width / 2, self.view.frame.size.width / 2 + 40);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
@@ -69,6 +85,25 @@
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 0;
+}
+- (void)requestData {
+    //查询Food表
+    PFQuery *query = [PFQuery queryWithClassName:@"Food"];
+    //执行查询
+    UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *returnedObjects, NSError *error) {
+        [aiv stopAnimating];
+        //完成时候的回调：returnedObjects数组；error错误信息
+        if (!error) {
+            //打印结果
+            _objectsForShow = returnedObjects;
+            NSLog(@"%@", _objectsForShow);
+            [_collectionView reloadData];
+        } else {
+            //打印错误
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 @end

@@ -10,6 +10,7 @@
 		4E339AC11BB139BC004D0CAE /* storageMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E339ABE1BB139BC004D0CAE /* storageMgr.m */; };
 		4E339AC21BB139BC004D0CAE /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E339AC01BB139BC004D0CAE /* Utilities.m */; };
 		4E339AC51BB13A40004D0CAE /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E339AC41BB13A40004D0CAE /* FeedbackViewController.m */; };
+		4E8070E91BB3CEC7001B6DD4 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8070E81BB3CEC7001B6DD4 /* HomeCell.m */; };
 		4E849D811BB2A0EF001BBF96 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E849D801BB2A0EF001BBF96 /* Item.m */; };
 		4E8BE7711BB000F30055CA99 /* CharacteristicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8BE7701BB000F30055CA99 /* CharacteristicViewController.m */; };
 		4EA8214B1BB1316400497563 /* RecommendationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA8214A1BB1316400497563 /* RecommendationViewController.m */; };
@@ -78,6 +79,8 @@
 		4E339AC01BB139BC004D0CAE /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		4E339AC31BB13A40004D0CAE /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		4E339AC41BB13A40004D0CAE /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		4E8070E71BB3CEC7001B6DD4 /* HomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCell.h; sourceTree = "<group>"; };
+		4E8070E81BB3CEC7001B6DD4 /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
 		4E849D7E1BB28475001BBF96 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		4E849D7F1BB2A0EF001BBF96 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		4E849D801BB2A0EF001BBF96 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
@@ -405,6 +408,8 @@
 				4EF89EC51BB242AC00780E58 /* ContentCollectionViewCell.m */,
 				4EF89F231BB2734600780E58 /* ActivityTableViewCell.h */,
 				4EF89F241BB2734600780E58 /* ActivityTableViewCell.m */,
+				4E8070E71BB3CEC7001B6DD4 /* HomeCell.h */,
+				4E8070E81BB3CEC7001B6DD4 /* HomeCell.m */,
 			);
 			name = ViewCell;
 			sourceTree = "<group>";
@@ -511,6 +516,7 @@
 			files = (
 				4EF89EF01BB2570700780E58 /* AFURLSessionManager.m in Sources */,
 				4EF89F211BB2571600780E58 /* UIView+WebCacheOperation.m in Sources */,
+				4E8070E91BB3CEC7001B6DD4 /* HomeCell.m in Sources */,
 				4EF89EED1BB2570700780E58 /* AFURLConnectionOperation.m in Sources */,
 				4EF89F201BB2571600780E58 /* UIImageView+WebCache.m in Sources */,
 				4EC4017E1BAF94D700E4AF65 /* AppDelegate.m in Sources */,

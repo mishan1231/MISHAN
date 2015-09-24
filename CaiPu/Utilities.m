@@ -35,8 +35,8 @@
 
 + (void)popUpAlertViewWithMsg:(NSString *)msg andTitle:(NSString* )title
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title == nil ? @"提示" : title message:msg == nil ? @"操作失败" : msg delegate:self cancelButtonTitle:@"确认" otherButtonTitles:nil];
-    [alertView show];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title == nil ? @"提示" : title message:msg == nil ? @"操作失败" : msg delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alertView show];
 }
 
 + (UIActivityIndicatorView *)getCoverOnView:(UIView *)view

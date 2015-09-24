@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ContentCollectionViewCell.h"
-@interface RecommendationViewController : UIViewController< UICollectionViewDelegate, UICollectionViewDelegateFlowLayout> {
-    NSInteger count;
-}
+@interface RecommendationViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) UIRefreshControl *refreshControl;
+
 @property (strong, nonatomic) NSArray *objectsForShow;
 
 

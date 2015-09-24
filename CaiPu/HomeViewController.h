@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITableView *TableView;
-@property (weak, nonatomic) IBOutlet UIImageView *logfoodimage;
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *objectsForShow;
+
 @end
