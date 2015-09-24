@@ -8,5 +8,6 @@
 
 #import <UIKit/UIKit.h>
 @interface FeedbackViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextView *TextView;
 
 @end

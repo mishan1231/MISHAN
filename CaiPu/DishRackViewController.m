@@ -30,7 +30,7 @@
 - (void)naviConfiguration {
     NSDictionary* textTitleOpt = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil];
     [self.navigationController.navigationBar setTitleTextAttributes:textTitleOpt];
-   // self.navigationItem.title = @"活动";
+   
     self.navigationController.navigationBar.barTintColor = [UIColor brownColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.hidden = NO;
@@ -132,8 +132,8 @@
          [cell.PhotoView sd_setImageWithURL:[NSURL URLWithString:[object.imgUrl isKindOfClass:[NSNull class]] ? nil : object.imgUrl] placeholderImage:[UIImage imageNamed:@"Default"]];
          cell.NameLabel.text = object.name;
          cell.ContentLabel.text = object.content;
-         cell.LikeLabel.attributedText = [self setAttributedStringWithFirstText:@"顶:" andSecondText:[NSString stringWithFormat:@"%ld", (long)object.like]];
-         cell.UnlikeLabel.attributedText = [self setAttributedStringWithFirstText:@"踩:" andSecondText:[NSString stringWithFormat:@"%ld", (long)object.unlike]];
+         cell.LikeLabel.attributedText = [self setAttributedStringWithFirstText:@"👌:" andSecondText:[NSString stringWithFormat:@"%ld", (long)object.like]];
+         cell.UnlikeLabel.attributedText = [self setAttributedStringWithFirstText:@"👎:" andSecondText:[NSString stringWithFormat:@"%ld", (long)object.unlike]];
          
          return cell;
      }
@@ -142,7 +142,7 @@
          ActivityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCell"];
          CGSize maxSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width - 30, 1000);
          CGSize contentLabelSize = [object.content boundingRectWithSize:maxSize options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:cell.ContentLabel.font} context:nil].size;
-         return cell.ContentLabel.frame.origin.y + contentLabelSize.height + 16;
+         return cell.ContentLabel.frame.origin.y + contentLabelSize.height + 10;
      }
      
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -232,7 +232,7 @@
          return attString;
      }
 - (void)photoTapAtIndexPath:(NSIndexPath *)indexPath {
-   // ActivityObject *object = [_objectsForShow objectAtIndex:indexPath.row];
+    //ActivityObject *object = [_objectsForShow objectAtIndex:indexPath.row];
     _zoomedIV = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _zoomedIV.userInteractionEnabled = YES;
     //_zoomedIV.image = [Utilities imageUrl:object.imgUrl];
