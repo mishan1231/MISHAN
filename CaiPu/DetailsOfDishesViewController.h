@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailsOfDishesViewController : UIViewController
+@interface DetailsOfDishesViewController : UIViewController{
+ BOOL onLoading;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *photoIV;
 @property (weak, nonatomic) IBOutlet UILabel *describeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property (strong, nonatomic) PFObject *object;
+@property (strong, nonatomic) PFObject *item;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *DanLabel;
 @property (weak, nonatomic) IBOutlet UITextField *TextFile;
-@property(strong,nonatomic)PFObject *item;
+
 @end

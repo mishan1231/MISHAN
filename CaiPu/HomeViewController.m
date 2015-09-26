@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self requestData];
+    [self naviConfiguration];
     _refreshControl = [[UIRefreshControl alloc] init];
     NSString *title = [NSString stringWithFormat:@"下拉即可刷新"];
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
@@ -51,6 +52,16 @@
     UINavigationController *naviVC = [[UINavigationController alloc] initWithRootViewController:tabVC];
     naviVC.navigationBarHidden = YES;
 }*/
+- (void)naviConfiguration {
+    NSDictionary* textTitleOpt = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    [self.navigationController.navigationBar setTitleTextAttributes:textTitleOpt];
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor brownColor];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.hidden = NO;
+    [self.navigationController.navigationBar setTranslucent:YES];
+}
+
 - (void)requestData {
     //查询Food表
     PFQuery *query = [PFQuery queryWithClassName:@"Food"];
@@ -98,7 +109,7 @@
         PFObject *object = [_objectsForShow objectAtIndex:ip.row];
         //获取指针并指向终点
         DetailsOfDishesViewController *detailVC = segue.destinationViewController;
-        detailVC.object = object;
+        detailVC.item = object;
         detailVC.hidesBottomBarWhenPushed = YES;
     }
 }
@@ -156,6 +167,7 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+   
     return 0;
 }
 

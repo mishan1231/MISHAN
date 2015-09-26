@@ -8,6 +8,8 @@
 
 #import "RecommendationViewController.h"
 #import "HomeCell.h"
+#import "DetailsOfDishesViewController.h"
+#import "HomeViewController.h"
 @interface RecommendationViewController ()
 
 @end
@@ -18,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self requestData];
+    
 
 }
 
@@ -31,8 +34,14 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"TeseTOXiang"]) {
+        NSIndexPath *ip = _collectionView.indexPathsForSelectedItems.firstObject;
+        PFObject *object = [_objectsForShow objectAtIndex:ip.row];
+        //获取指针并指向终点
+        DetailsOfDishesViewController *detailVC = segue.destinationViewController;
+        detailVC.item = object;
+        detailVC.hidesBottomBarWhenPushed = YES;
+    }
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -71,6 +80,11 @@
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+}
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(self.view.frame.size.width / 2, self.view.frame.size.width / 2 + 40);
 }
@@ -84,6 +98,7 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    
     return 0;
 }
 - (void)requestData {
