@@ -8,7 +8,8 @@
 
 #import "HomeViewController.h"
 #import "HomeCell.h"
-#import "TabBarController.h"
+#import "DetailsOfDishesViewController.h"
+//#import "TabBarController.h"
 @interface HomeViewController ()
 
 @end
@@ -17,11 +18,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    //_collectionView.backgroundColor = [UIColor purpleColor];
     [self requestData];
+    _refreshControl = [[UIRefreshControl alloc] init];
+    NSString *title = [NSString stringWithFormat:@"下拉即可刷新"];
+    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    [style setAlignment:NSTextAlignmentCenter];
+    [style setLineBreakMode:NSLineBreakByWordWrapping];
+    NSDictionary *attrsDictionary = @{NSUnderlineStyleAttributeName:@(NSUnderlineStyleNone),
+                                      NSFontAttributeName:[UIFont systemFontOfSize:13],
+                                      NSParagraphStyleAttributeName:style,
+                                      NSForegroundColorAttributeName:[UIColor darkGrayColor]};
+    NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
+    _refreshControl.attributedTitle = attributedTitle;
+    _refreshControl.tintColor = [UIColor darkGrayColor];
+    _refreshControl.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [_refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
+    [_collectionView addSubview:_refreshControl];
+    
+    
+    //[self requestData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestData) name:@"refreshHome" object:nil];
    // [self popUpHomeTab];
-
+    //[self.navigationController.navigationBar setTranslucent:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,15 +70,43 @@
         }
     }];
 }
-/*
+- (void)refreshData {
+   
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Food"];
+    
+    [query orderByDescending:@"price"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *returnedObjects, NSError *error) {
+        [_refreshControl endRefreshing];
+        if (!error) {
+            _objectsForShow = returnedObjects;
+            [_collectionView reloadData];
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
+//指针的方法
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"homeToXiang"]) {
+        NSIndexPath *ip = _collectionView.indexPathsForSelectedItems.firstObject;
+        PFObject *object = [_objectsForShow objectAtIndex:ip.row];
+        //获取指针并指向终点
+        DetailsOfDishesViewController *detailVC = segue.destinationViewController;
+        detailVC.object = object;
+        detailVC.hidesBottomBarWhenPushed = YES;
+    }
 }
-*/
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+}
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }

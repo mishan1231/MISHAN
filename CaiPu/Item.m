@@ -11,12 +11,10 @@
 @implementation Item
 
 - (id)initWithObject:(PFObject *)object {
-    self.name = [NSString stringWithFormat:@"贪婪%@", object[@"name"]];
-    self.describe = object[@"describe"];
+    self.name = [NSString stringWithFormat:nil, object[@"name"]];
+    self.describe = object[@"xiangqing"];
     self.photo = object[@"photo"];
-    self.cost = object[@"cost"];
     self.price = object[@"price"];
-    self.range = object[@"range"];
     PFUser *user = object[@"owner"];
     self.owner = user.username;
     return self;

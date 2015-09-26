@@ -21,6 +21,7 @@
     [self naviConfiguration];
     [self dataPreparation];
     [self uiConfiguration];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -41,7 +42,7 @@
 - (void)dataPreparation {
     _objectsForShow = nil;
     _objectsForShow = [NSMutableArray new];
-    _aiv = [Utilities getCoverOnView:[[UIApplication sharedApplication] keyWindow]];
+    //_aiv = [Utilities getCoverOnView:[[UIApplication sharedApplication] keyWindow]];
     [self initializeData];
 }
 //下拉刷新：刷新器+初始数据（第一页数据）
@@ -53,7 +54,9 @@
 }
 - (void)urlAction {
     
-   }
+
+}
+
 - (void)uiConfiguration {
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     NSString *title = [NSString stringWithFormat:@"下拉即可刷新"];
@@ -83,13 +86,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
          // Return the number of rows in the section.
          return _objectsForShow.count;
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //选中时候数组是否变色（该行变成未选中状态）
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    //页面更新数据
-    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

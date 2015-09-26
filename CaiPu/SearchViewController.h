@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchViewController : UIViewController
-
+@interface SearchViewController : UIViewController <UISearchBarDelegate>
+@property (weak, nonatomic) IBOutlet UISearchBar *search;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSArray *objectsForShow;
 @end

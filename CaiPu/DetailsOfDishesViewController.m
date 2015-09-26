@@ -9,6 +9,10 @@
 #import "DetailsOfDishesViewController.h"
 
 @interface DetailsOfDishesViewController ()
+- (IBAction)jianButton:(UIButton *)sender;
+- (IBAction)jiaButton:(UIButton *)sender;
+- (IBAction)joinAddButton:(UIButton *)sender forEvent:(UIEvent *)event;
+- (IBAction)MoveButton:(UIButton *)sender forEvent:(UIEvent *)event;
 
 @end
 
@@ -17,6 +21,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //[self.navigationController.navigationBar setTranslucent:NO];
+    PFObject *item1 = [PFObject objectWithClassName:@"Food"];
+    PFFile *photo = _item[@"photo"];
+    [photo getDataInBackgroundWithBlock:^(NSData *photoData, NSError *error) {
+        //NSString *price = _priceLabel.text;
+        //NSString *describe = _describeLabel.text;
+        
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:photoData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _photoIV.image = image;
+            });
+        }
+    }];
+    _describeLabel.text = _item[@"xiangqing"];
+  _priceLabel.text = [NSString stringWithFormat:@"%@", _item[@"price"]];
+    _DanLabel.text = [NSString stringWithFormat:@"%@", _item[@"danwei"]];
+    
+   
+    
+    
+    NSData *photoData = UIImagePNGRepresentation(_photoIV.image);
+    PFFile *photoFile = [PFFile fileWithName:@"photo.png" data:photoData];
+    item1[@"photo"] = photoFile;
+
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,4 +64,15 @@
 }
 */
 
+- (IBAction)jianButton:(UIButton *)sender {
+}
+
+- (IBAction)jiaButton:(UIButton *)sender {
+}
+
+- (IBAction)joinAddButton:(UIButton *)sender forEvent:(UIEvent *)event {
+}
+
+- (IBAction)MoveButton:(UIButton *)sender forEvent:(UIEvent *)event {
+}
 @end
