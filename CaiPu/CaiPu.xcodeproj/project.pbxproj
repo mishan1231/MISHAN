@@ -26,6 +26,7 @@
 		4EC401BE1BAFCA4E00E4AF65 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401BD1BAFCA4E00E4AF65 /* SearchViewController.m */; };
 		4ECCEB201BB122C6009E1468 /* DishRackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECCEB1F1BB122C6009E1468 /* DishRackViewController.m */; };
 		4ECCEB231BB12328009E1468 /* DetailsOfDishesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECCEB221BB12328009E1468 /* DetailsOfDishesViewController.m */; };
+		4EF75AE91BBA717100824D6E /* SplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF75AE81BBA717100824D6E /* SplashView.m */; };
 		4EF7D5E41BB0DECB0081EA9C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF7D5E31BB0DECB0081EA9C /* SystemConfiguration.framework */; };
 		4EF7D5E61BB0DF190081EA9C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF7D5E51BB0DF190081EA9C /* AudioToolbox.framework */; };
 		4EF7D5E81BB0DF380081EA9C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF7D5E71BB0DF380081EA9C /* libsqlite3.dylib */; };
@@ -110,6 +111,8 @@
 		4ECCEB1F1BB122C6009E1468 /* DishRackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishRackViewController.m; sourceTree = "<group>"; };
 		4ECCEB211BB12328009E1468 /* DetailsOfDishesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsOfDishesViewController.h; sourceTree = "<group>"; };
 		4ECCEB221BB12328009E1468 /* DetailsOfDishesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsOfDishesViewController.m; sourceTree = "<group>"; };
+		4EF75AE71BBA717100824D6E /* SplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashView.h; sourceTree = "<group>"; };
+		4EF75AE81BBA717100824D6E /* SplashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashView.m; sourceTree = "<group>"; };
 		4EF7D5E31BB0DECB0081EA9C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4EF7D5E51BB0DF190081EA9C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4EF7D5E71BB0DF380081EA9C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -410,6 +413,8 @@
 				4EF89F241BB2734600780E58 /* ActivityTableViewCell.m */,
 				4E8070E71BB3CEC7001B6DD4 /* HomeCell.h */,
 				4E8070E81BB3CEC7001B6DD4 /* HomeCell.m */,
+				4EF75AE71BBA717100824D6E /* SplashView.h */,
+				4EF75AE81BBA717100824D6E /* SplashView.m */,
 			);
 			name = ViewCell;
 			sourceTree = "<group>";
@@ -554,6 +559,7 @@
 				4EF89EEE1BB2570700780E58 /* AFURLRequestSerialization.m in Sources */,
 				4EF89EE81BB2570700780E58 /* AFHTTPRequestOperation.m in Sources */,
 				4EF89F171BB2571600780E58 /* SDWebImageDownloader.m in Sources */,
+				4EF75AE91BBA717100824D6E /* SplashView.m in Sources */,
 				4EF89F121BB2571600780E58 /* MKAnnotationView+WebCache.m in Sources */,
 				4EF89EEF1BB2570700780E58 /* AFURLResponseSerialization.m in Sources */,
 				4EF89ECC1BB2519C00780E58 /* ActivityObject.m in Sources */,

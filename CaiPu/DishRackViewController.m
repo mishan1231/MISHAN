@@ -35,8 +35,7 @@
    
     self.navigationController.navigationBar.barTintColor = [UIColor brownColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.hidden = NO;
-    [self.navigationController.navigationBar setTranslucent:YES];
+   
 }
 //进入页面：菊花膜+初始数据（第一页数据）
 - (void)dataPreparation {

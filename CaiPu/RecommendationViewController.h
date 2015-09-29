@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ContentCollectionViewCell.h"
-@interface RecommendationViewController : UIViewController
+@interface RecommendationViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (strong, nonatomic) NSArray *objectsForShow;

@@ -25,6 +25,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //[self.navigationController.navigationBar setTranslucent:NO];
+    self.navigationController.navigationBar.barTintColor = [UIColor brownColor];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+
     _TextFile.text = @"1";
     NSLog(@"%@", _item);
     PFFile *photo = _item[@"image"];
@@ -101,5 +105,9 @@
 
 
 - (IBAction)MoveButton:(UIButton *)sender forEvent:(UIEvent *)event {
+    
+    
+    
+    
 }
 @end

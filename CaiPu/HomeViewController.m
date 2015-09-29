@@ -39,6 +39,7 @@
     
     //[self requestData];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestData) name:@"refreshHome" object:nil];
+    
    // [self popUpHomeTab];
     //[self.navigationController.navigationBar setTranslucent:NO];
 }
@@ -76,8 +77,8 @@
             NSLog(@"%@", _objectsForShow);
             [_collectionView reloadData];
         } else {
-            //打印错误
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [Utilities popUpAlertViewWithMsg:@"网络不给力，请稍后再试" andTitle:nil];
+            //NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
 }

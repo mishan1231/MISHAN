@@ -8,6 +8,7 @@
 
 #import "RecommendationViewController.h"
 #import "HomeCell.h"
+#import "SplashView.h"
 #import "DetailsOfDishesViewController.h"
 #import "HomeViewController.h"
 @interface RecommendationViewController ()
@@ -19,8 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self requestData];
-    
+    //[self requestData];
+    self.navigationController.navigationBar.barTintColor = [UIColor brownColor];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
 
 }
 
@@ -78,6 +81,16 @@
     cell.price.text = [NSString stringWithFormat:@"%@", object[@"price"]];
     
     return cell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    if (kind == UICollectionElementKindSectionHeader) {
+        SplashView *sv = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"top" forIndexPath:indexPath];
+        
+        return sv;
+    } else {
+        return nil;
+    }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

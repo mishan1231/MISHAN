@@ -16,7 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor brownColor];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.hidden = NO;
+
     // Do any additional setup after loading the view.
 }
 
@@ -92,7 +96,6 @@
 
 - (void)setSearchBeginWithText:(NSString *)text {
     
-
 }
 
 @end
