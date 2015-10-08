@@ -52,7 +52,21 @@
     [self urlAction];
 }
 - (void)urlAction {
+    PFQuery *query = [PFQuery queryWithClassName:@"caijia"];
+    [query includeKey:@"food"];
+    //[query orderByDescending:@"price"];
     
+    UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *returnedObjects, NSError *error) {
+        [aiv stopAnimating];
+        if (!error) {
+            _objectsForShow = [NSMutableArray arrayWithArray:returnedObjects];
+            [_tableView reloadData];
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+
 
 }
 
@@ -99,21 +113,32 @@
              [cell setLayoutMargins:UIEdgeInsetsZero];
          }
          cell.delegate = self;
-         ActivityObject *object = [_objectsForShow objectAtIndex:indexPath.row];
+         PFObject *object = [_objectsForShow objectAtIndex:indexPath.row];
+    PFObject *food = object[@"food"];
          cell.indexPath = indexPath;
-         [cell.PhotoView sd_setImageWithURL:[NSURL URLWithString:[object.imgUrl isKindOfClass:[NSNull class]] ? nil : object.imgUrl] placeholderImage:[UIImage imageNamed:@"image"]];
-         cell.NameLabel.text = object.name;
-         cell.ContentLabel.text = object.content;
-         cell.LikeLabel.attributedText = [self setAttributedStringWithFirstText:@"👌:" andSecondText:[NSString stringWithFormat:@"%ld", (long)object.like]];
-         cell.UnlikeLabel.attributedText = [self setAttributedStringWithFirstText:@"👎:" andSecondText:[NSString stringWithFormat:@"%ld", (long)object.unlike]];
-         
+    PFFile *photo = food[@"image"];
+    [photo getDataInBackgroundWithBlock:^(NSData *photoData, NSError *error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:photoData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.PhotoView.image = image;
+            });
+        }
+    }];
+         //[cell.PhotoView sd_setImageWithURL:[NSURL URLWithString:[object[@"image"] isKindOfClass:[NSNull class]] ? nil : object[@"image"]] placeholderImage:[UIImage imageNamed:@"image"]];
+         cell.NameLabel.text = food[@"Name"];
+         cell.ContentLabel.text = food[@"xiangqing"];
+//         cell.LikeLabel.attributedText = [self setAttributedStringWithFirstText:@"👌:" andSecondText:[NSString stringWithFormat:@"%ld", (long)object.like]];
+//         cell.UnlikeLabel.attributedText = [self setAttributedStringWithFirstText:@"👎:" andSecondText:[NSString stringWithFormat:@"%ld", (long)object.unlike]];
+    
          return cell;
      }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-         ActivityObject *object = [_objectsForShow objectAtIndex:indexPath.row];
+         PFObject *object = [_objectsForShow objectAtIndex:indexPath.row];
+    PFObject *food = object[@"food"];
          ActivityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCell"];
          CGSize maxSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width - 30, 1000);
-         CGSize contentLabelSize = [object.content boundingRectWithSize:maxSize options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:cell.ContentLabel.font} context:nil].size;
+         CGSize contentLabelSize = [food[@"xiangqing"] boundingRectWithSize:maxSize options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:cell.ContentLabel.font} context:nil].size;
          return cell.ContentLabel.frame.origin.y + contentLabelSize.height + 10;
      }
      

@@ -8,6 +8,7 @@
 
 #import "SearchViewController.h"
 #import "HomeCell.h"
+#import "DetailsOfDishesViewController.h"
 @interface SearchViewController ()
 
 @end
@@ -29,15 +30,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ if ([segue.identifier isEqualToString:@"searchToxiang"]) {
+ NSIndexPath *ip = _collectionView.indexPathsForSelectedItems.firstObject;
+ PFObject *object = [_objectsForShow objectAtIndex:ip.row];
+ //获取指针并指向终点
+ DetailsOfDishesViewController *detailVC = segue.destinationViewController;
+ detailVC.item = object;
+ detailVC.hidesBottomBarWhenPushed = YES;
+ }
+ }
+
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
@@ -47,7 +55,7 @@
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HomeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchCell" forIndexPath:indexPath];
     
     PFObject *object = [_objectsForShow objectAtIndex:indexPath.row];
@@ -95,7 +103,19 @@
 }
 
 - (void)setSearchBeginWithText:(NSString *)text {
+    PFQuery *query = [PFQuery queryWithClassName:@"Food"];
+    [query whereKey:@"Name" containsString:text];
     
+    UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *returnedObjects, NSError *error) {
+        [aiv stopAnimating];
+        if (!error) {
+            _objectsForShow = returnedObjects;
+            [_collectionView reloadData];
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 @end

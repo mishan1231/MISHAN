@@ -24,7 +24,8 @@
     self.navigationController.navigationBar.barTintColor = [UIColor brownColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 
-
+    NSDictionary* textTitleOpt = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    [self.navigationController.navigationBar setTitleTextAttributes:textTitleOpt];
 }
 
 - (void)didReceiveMemoryWarning {

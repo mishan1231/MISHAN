@@ -94,7 +94,20 @@
 
 - (IBAction)joinAddButton:(UIButton *)sender forEvent:(UIEvent *)event {
     
+    PFObject *cj = [PFObject objectWithClassName:@"caijia"];
+    cj[@"food"] = _item;
+    cj[@"amount"] = _TextFile.text;
     
+    UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
+    onLoading = YES;
+    [cj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [aiv stopAnimating];
+        if (succeeded) {
+            [Utilities popUpAlertViewWithMsg:@"成功加入菜架" andTitle:nil];
+        } else {
+            [Utilities popUpAlertViewWithMsg:@"加入菜架失败！" andTitle:nil];
+        }
+    }];
     
     
     

@@ -15,5 +15,5 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @property (strong, nonatomic) NSTimer *timer;
-@property (strong, nonatomic) NSArray *objectsForShow;
+
 @end

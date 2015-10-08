@@ -401,6 +401,7 @@
                                             <outlet property="image" destination="seX-YL-hiL" id="rPu-Xa-HfS"/>
                                             <outlet property="name" destination="WPj-df-wwE" id="9jD-B8-66D"/>
                                             <outlet property="price" destination="YrH-m1-y4n" id="Iiu-1X-Jp4"/>
+                                            <segue destination="eFg-ia-uLG" kind="show" identifier="searchToxiang" id="AoT-tc-T5K"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -470,14 +471,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xd9-Nb-kAw">
-                                <rect key="frame" x="249" y="530" width="60" height="30"/>
-                                <state key="normal" title="确定下单">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="124" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="d7D-BL-yj0">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="124" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="d7D-BL-yj0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActivityCell" rowHeight="124" id="jid-GL-uDT" customClass="ActivityTableViewCell">
@@ -522,7 +517,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动具体内容活动具体内容活动具体内容活动具体内容活动具体内容" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GS3-8N-CqX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动具体内容活动具体内容活动具体内容活动具体内容活动具体内容" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GS3-8N-CqX">
                                                     <rect key="frame" x="20" y="90" width="280" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -585,16 +580,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Xd9-Nb-kAw" secondAttribute="trailing" constant="11" id="2Df-Vb-Uov"/>
-                            <constraint firstItem="D9n-AW-DIn" firstAttribute="top" secondItem="Xd9-Nb-kAw" secondAttribute="bottom" constant="8" id="3rx-HR-R9p"/>
+                            <constraint firstItem="d7D-BL-yj0" firstAttribute="leading" secondItem="aK3-7K-Cjf" secondAttribute="leading" id="BsW-3g-tu6"/>
+                            <constraint firstItem="D9n-AW-DIn" firstAttribute="top" secondItem="d7D-BL-yj0" secondAttribute="bottom" id="PrB-F7-rjv"/>
+                            <constraint firstAttribute="trailing" secondItem="d7D-BL-yj0" secondAttribute="trailing" id="VJ9-rX-q2e"/>
+                            <constraint firstItem="d7D-BL-yj0" firstAttribute="top" secondItem="KRj-Cg-0HB" secondAttribute="bottom" constant="-64" id="dhd-3k-xJK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="菜架单" id="PGb-Ee-Avc">
-                        <barButtonItem key="rightBarButtonItem" title="编辑" id="vgU-m4-iMd">
+                        <barButtonItem key="leftBarButtonItem" title="编辑" id="vgU-m4-iMd">
                             <connections>
                                 <action selector="BianjiButton:" destination="os7-KF-UUz" id="3dl-ka-hqY"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="下单" id="OAp-fi-bkU"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -604,7 +602,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OGM-3r-Pml" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="144" y="1197"/>
+            <point key="canvasLocation" x="179" y="1250"/>
         </scene>
         <!--菜系详情-->
         <scene sceneID="qVh-Lu-UNv">
@@ -884,7 +882,7 @@
         <image name="4" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="NC4-gb-TpP"/>
         <segue reference="MOV-is-w8t"/>
-        <segue reference="os0-1I-yek"/>
     </inferredMetricsTieBreakers>
 </document>
