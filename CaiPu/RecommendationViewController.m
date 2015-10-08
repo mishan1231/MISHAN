@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //[self requestData];
+    [self requestData];
     self.navigationController.navigationBar.barTintColor = [UIColor brownColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 

@@ -19,9 +19,23 @@
     
     for (int i = 0; i < 4; i ++) {
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(UI_SCREEN_W * i, 0, UI_SCREEN_W, _containerSV.frame.size.height)];
-        iv.image = [UIImage imageNamed:@"Image1"];
+        if (i==0) {
+            iv.image = [UIImage imageNamed:@"as"];
+        }
+        if (i==1) {
+            iv.image = [UIImage imageNamed:@"as1"];
+        }
+        if (i==2) {
+            iv.image = [UIImage imageNamed:@"as2"];
+        }
+        if (i==3) {
+            iv.image = [UIImage imageNamed:@"as3"];
+        }
+        
         iv.contentMode = UIViewContentModeScaleAspectFill;
         [_containerSV addSubview:iv];
+
+        
     }
     
     _pageControl.numberOfPages = 4;

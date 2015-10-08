@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>CCED6C72-2518-455A-B175-FE343988EC6F</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>CaiPu</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>E1FE1BDDA73EAD8F06B7711A337AD2BC6D369877</key>
 		<string>https://github.com/mishan1231/MISHAN.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>CaiPu/CaiPu.xcodeproj/project.xcworkspace</string>
+	<string>CaiPu/CaiPu.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>E1FE1BDDA73EAD8F06B7711A337AD2BC6D369877</key>
