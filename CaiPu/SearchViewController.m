@@ -103,19 +103,25 @@
 }
 
 - (void)setSearchBeginWithText:(NSString *)text {
-    PFQuery *query = [PFQuery queryWithClassName:@"Food"];
-    [query whereKey:@"Name" containsString:text];
-    
-    UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *returnedObjects, NSError *error) {
-        [aiv stopAnimating];
-        if (!error) {
-            _objectsForShow = returnedObjects;
-            [_collectionView reloadData];
-        } else {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
+    if (![text isEqualToString:@""]) {
+        PFQuery *query = [PFQuery queryWithClassName:@"Food"];
+        [query whereKey:@"Name" containsString:text];
+        
+        UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *returnedObjects, NSError *error) {
+            [aiv stopAnimating];
+            if (!error) {
+                _objectsForShow = returnedObjects;
+                [_collectionView reloadData];
+            } else {
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
+    } else {
+        _objectsForShow = nil;
+        _objectsForShow = [NSArray new];
+        [_collectionView reloadData];
+    }
 }
 
 @end

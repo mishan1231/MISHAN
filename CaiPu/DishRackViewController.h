@@ -22,7 +22,7 @@
 @property (strong, nonatomic) UIActivityIndicatorView *aiv;
 @property (strong, nonatomic) UIActivityIndicatorView *tableFooterAI;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (strong, nonatomic) PFObject *item;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editBarButtonItem;
 @property (strong, nonatomic) NSMutableArray *objectsForShow;
 

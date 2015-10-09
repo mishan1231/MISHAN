@@ -12,6 +12,9 @@
 
 @interface HomeViewController ()
 
+- (IBAction)caixiAction:(UISegmentedControl *)sender forEvent:(UIEvent *)event;
+- (IBAction)kouweiAction:(UISegmentedControl *)sender forEvent:(UIEvent *)event;
+
 @end
 
 @implementation HomeViewController
@@ -20,6 +23,7 @@
     [super viewDidLoad];
     [self requestData];
     [self naviConfiguration];
+    //[NSDate date];
     _refreshControl = [[UIRefreshControl alloc] init];
     NSString *title = [NSString stringWithFormat:@"下拉即可刷新"];
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
@@ -66,6 +70,62 @@
 - (void)requestData {
     //查询Food表
     PFQuery *query = [PFQuery queryWithClassName:@"Food"];
+    switch (_caixi.selectedSegmentIndex) {
+        case 0: {
+            [query whereKey:@"kind" equalTo:@"家常菜"];
+        }
+            break;
+        case 1: {
+             [query whereKey:@"kind" equalTo:@"川菜"];
+        }
+            break;
+        case 2: {
+             [query whereKey:@"kind" equalTo:@"湘菜菜"];
+        }
+            break;
+        case 3: {
+             [query whereKey:@"kind" equalTo:@"点心"];
+        }
+            break;
+        case 4: {
+             [query whereKey:@"kind" equalTo:@"汤菜"];
+        }
+        case 5: {
+            [query whereKey:@"kind" equalTo:@"拌菜"];
+        }
+
+            break;
+        default:
+            break;
+    }
+    switch (_kouwei.selectedSegmentIndex) {
+        case 0: {
+            [query whereKey:@"kouwei" equalTo:@"甜"];
+        }
+            break;
+        case 1: {
+             [query whereKey:@"kouwei" equalTo:@"辣"];
+        }
+            break;
+        case 2: {
+             [query whereKey:@"kouwei" equalTo:@"酸"];
+        }
+            break;
+        case 3: {
+             [query whereKey:@"kouwei" equalTo:@"苦"];
+        }
+            break;
+        case 4: {
+             [query whereKey:@"kouwei" equalTo:@"清淡"];
+        }
+        case 5: {
+            [query whereKey:@"kouwei" equalTo:@"咸"];
+        }
+
+            break;
+        default:
+            break;
+    }
     //执行查询
     UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
     [query findObjectsInBackgroundWithBlock:^(NSArray *returnedObjects, NSError *error) {
@@ -170,6 +230,14 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
    
     return 0;
+}
+
+- (IBAction)caixiAction:(UISegmentedControl *)sender forEvent:(UIEvent *)event {
+    [self requestData];
+}
+
+- (IBAction)kouweiAction:(UISegmentedControl *)sender forEvent:(UIEvent *)event {
+    [self requestData];
 }
 
 @end

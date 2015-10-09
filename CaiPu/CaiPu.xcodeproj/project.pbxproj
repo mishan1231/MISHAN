@@ -60,7 +60,7 @@
 		4EF89F1F1BB2571600780E58 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF89F0D1BB2571600780E58 /* UIImageView+HighlightedWebCache.m */; };
 		4EF89F201BB2571600780E58 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF89F0F1BB2571600780E58 /* UIImageView+WebCache.m */; };
 		4EF89F211BB2571600780E58 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF89F111BB2571600780E58 /* UIView+WebCacheOperation.m */; };
-		4EF89F251BB2734600780E58 /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF89F241BB2734600780E58 /* ActivityTableViewCell.m */; };
+		4EFB7EB31BC7B1C800067825 /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB7EB21BC7B1C800067825 /* ActivityTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,8 +177,8 @@
 		4EF89F0F1BB2571600780E58 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		4EF89F101BB2571600780E58 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		4EF89F111BB2571600780E58 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		4EF89F231BB2734600780E58 /* ActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewCell.h; sourceTree = "<group>"; };
-		4EF89F241BB2734600780E58 /* ActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewCell.m; sourceTree = "<group>"; };
+		4EFB7EB21BC7B1C800067825 /* ActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewCell.m; sourceTree = "<group>"; };
+		4EFB7EB41BC7B1F500067825 /* ActivityTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewCell.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +246,8 @@
 			isa = PBXGroup;
 			children = (
 				4EC4017C1BAF94D700E4AF65 /* AppDelegate.h */,
+				4EFB7EB41BC7B1F500067825 /* ActivityTableViewCell.h */,
+				4EFB7EB21BC7B1C800067825 /* ActivityTableViewCell.m */,
 				4EC4017D1BAF94D700E4AF65 /* AppDelegate.m */,
 				4EF89ECA1BB2519C00780E58 /* ActivityObject.h */,
 				4EF89ECB1BB2519C00780E58 /* ActivityObject.m */,
@@ -409,8 +411,6 @@
 			children = (
 				4EF89EC41BB242AC00780E58 /* ContentCollectionViewCell.h */,
 				4EF89EC51BB242AC00780E58 /* ContentCollectionViewCell.m */,
-				4EF89F231BB2734600780E58 /* ActivityTableViewCell.h */,
-				4EF89F241BB2734600780E58 /* ActivityTableViewCell.m */,
 				4E8070E71BB3CEC7001B6DD4 /* HomeCell.h */,
 				4E8070E81BB3CEC7001B6DD4 /* HomeCell.m */,
 				4EF75AE71BBA717100824D6E /* SplashView.h */,
@@ -533,6 +533,7 @@
 				4EF89F1A1BB2571600780E58 /* SDWebImagePrefetcher.m in Sources */,
 				4E339AC11BB139BC004D0CAE /* storageMgr.m in Sources */,
 				4E849D811BB2A0EF001BBF96 /* Item.m in Sources */,
+				4EFB7EB31BC7B1C800067825 /* ActivityTableViewCell.m in Sources */,
 				4EC401811BAF94D700E4AF65 /* CaiPu.xcdatamodeld in Sources */,
 				4EC401A91BAFBC8A00E4AF65 /* TabBarController.m in Sources */,
 				4EF89F1F1BB2571600780E58 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -547,7 +548,6 @@
 				4EC4017B1BAF94D700E4AF65 /* main.m in Sources */,
 				4ECCEB231BB12328009E1468 /* DetailsOfDishesViewController.m in Sources */,
 				4EF89F1D1BB2571600780E58 /* UIImage+MultiFormat.m in Sources */,
-				4EF89F251BB2734600780E58 /* ActivityTableViewCell.m in Sources */,
 				4EF89F181BB2571600780E58 /* SDWebImageDownloaderOperation.m in Sources */,
 				4E339AC21BB139BC004D0CAE /* Utilities.m in Sources */,
 				4E339AC51BB13A40004D0CAE /* FeedbackViewController.m in Sources */,

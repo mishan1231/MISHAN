@@ -12,5 +12,7 @@
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *objectsForShow;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *caixi;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *kouwei;
 
 @end

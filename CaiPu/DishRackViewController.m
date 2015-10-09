@@ -9,7 +9,10 @@
 #import "DishRackViewController.h"
 #import "ActivityObject.h"
 #import "UIImageView+WebCache.h"
+#import "HomeCell.h"
+#import "DetailsOfDishesViewController.h"
 @interface DishRackViewController ()
+- (IBAction)XiaDanButton:(UIBarButtonItem *)sender;
 
 
 @end
@@ -29,6 +32,44 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"homeToXiang"]) {
+        //NSIndexPath *ip = _tableView.indexPathsForSelectedItems.firstObject;
+        PFObject *object = [_objectsForShow objectAtIndex:ip.row];
+        //获取指针并指向终点
+        DetailsOfDishesViewController *detailVC = segue.destinationViewController;
+        detailVC.item = object;
+        detailVC.hidesBottomBarWhenPushed = YES;
+    }
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    HomeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ActivityCell" forIndexPath:indexPath];
+    
+    PFObject *object = [_objectsForShow objectAtIndex:indexPath.row];
+    
+    UIView *bv = [[UIView alloc] init];
+    bv.backgroundColor = [UIColor lightGrayColor];
+    cell.backgroundView = bv;
+    UIView *sbv = [[UIView alloc] init];
+    sbv.backgroundColor = [UIColor orangeColor];
+    cell.selectedBackgroundView = sbv;
+    
+    PFFile *imgFile = object[@"image"];
+    [imgFile getDataInBackgroundWithBlock:^(NSData *photoData, NSError *error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:photoData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.image.image = image;
+            });
+        }
+    }];
+    cell.name.text = object[@"Name"];
+    cell.price.text = [NSString stringWithFormat:@"%@", object[@"price"]];
+    
+    return cell;
+}
+
 - (void)naviConfiguration {
     NSDictionary* textTitleOpt = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil];
     [self.navigationController.navigationBar setTitleTextAttributes:textTitleOpt];
@@ -112,11 +153,17 @@
          if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
              [cell setLayoutMargins:UIEdgeInsetsZero];
          }
-         cell.delegate = self;
-         PFObject *object = [_objectsForShow objectAtIndex:indexPath.row];
+    cell.delegate = self;
+    PFObject *object = [_objectsForShow objectAtIndex:indexPath.row];
     PFObject *food = object[@"food"];
-         cell.indexPath = indexPath;
+    cell.indexPath = indexPath;
     PFFile *photo = food[@"image"];
+    CGFloat price= [food[@"price"] floatValue] * [object[@"amount"] floatValue];
+    NSString *priceStr = [Utilities notRounding:price afterPoint:2];
+    cell.priceLabel.text = [NSString stringWithFormat:@"价格：%@", priceStr];
+    NSString *like=food[@"like"] ;
+     NSString *unlike=food[@"unlike"] ;
+    NSString *kind=food[@"kind"];
     [photo getDataInBackgroundWithBlock:^(NSData *photoData, NSError *error) {
         if (!error) {
             UIImage *image = [UIImage imageWithData:photoData];
@@ -125,13 +172,13 @@
             });
         }
     }];
-         //[cell.PhotoView sd_setImageWithURL:[NSURL URLWithString:[object[@"image"] isKindOfClass:[NSNull class]] ? nil : object[@"image"]] placeholderImage:[UIImage imageNamed:@"image"]];
-         cell.NameLabel.text = food[@"Name"];
-         cell.ContentLabel.text = food[@"xiangqing"];
-//         cell.LikeLabel.attributedText = [self setAttributedStringWithFirstText:@"👌:" andSecondText:[NSString stringWithFormat:@"%ld", (long)object.like]];
-//         cell.UnlikeLabel.attributedText = [self setAttributedStringWithFirstText:@"👎:" andSecondText:[NSString stringWithFormat:@"%ld", (long)object.unlike]];
     
-         return cell;
+    cell.NameLabel.text = food[@"Name"];
+    cell.ContentLabel.text = food[@"xiangqing"];
+    cell.LikeLabel.text=[NSString stringWithFormat:@"👌：%@", like];
+    cell.UnlikeLabel.text=[NSString stringWithFormat:@"👌：%@", unlike];
+    cell.kindLabel.text=[NSString stringWithFormat:@"菜系：%@", kind];
+    return cell;
      }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
          PFObject *object = [_objectsForShow objectAtIndex:indexPath.row];
@@ -230,8 +277,19 @@
      }
 - (void)photoTapAtIndexPath:(NSIndexPath *)indexPath {
     //ActivityObject *object = [_objectsForShow objectAtIndex:indexPath.row];
+    PFObject *object = [_objectsForShow objectAtIndex:indexPath.row];
+    PFObject *food = object[@"food"];
+    PFFile *photo = food[@"image"];
     _zoomedIV = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _zoomedIV.userInteractionEnabled = YES;
+    [photo getDataInBackgroundWithBlock:^(NSData *photoData, NSError *error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:photoData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _zoomedIV.image = image;
+            });
+        }
+    }];
     //_zoomedIV.image = [Utilities imageUrl:object.imgUrl];
     _zoomedIV.contentMode = UIViewContentModeScaleAspectFit;
     _zoomedIV.backgroundColor = [UIColor blackColor];
@@ -277,6 +335,10 @@
         _editBarButtonItem.title = @"编辑";
     }
 
+    
+}
+- (IBAction)XiaDanButton:(UIBarButtonItem *)sender {
+    
     
 }
 @end
