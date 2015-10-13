@@ -24,8 +24,8 @@
 		4EC401A91BAFBC8A00E4AF65 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401A81BAFBC8A00E4AF65 /* TabBarController.m */; };
 		4EC401AF1BAFC77000E4AF65 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401AE1BAFC77000E4AF65 /* HomeViewController.m */; };
 		4EC401BE1BAFCA4E00E4AF65 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC401BD1BAFCA4E00E4AF65 /* SearchViewController.m */; };
-		4ECCEB201BB122C6009E1468 /* DishRackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECCEB1F1BB122C6009E1468 /* DishRackViewController.m */; };
 		4ECCEB231BB12328009E1468 /* DetailsOfDishesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECCEB221BB12328009E1468 /* DetailsOfDishesViewController.m */; };
+		4EF3E3CB1BCCD53900FF8759 /* DishRackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3E3CA1BCCD53900FF8759 /* DishRackViewController.m */; };
 		4EF75AE91BBA717100824D6E /* SplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF75AE81BBA717100824D6E /* SplashView.m */; };
 		4EF7D5E41BB0DECB0081EA9C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF7D5E31BB0DECB0081EA9C /* SystemConfiguration.framework */; };
 		4EF7D5E61BB0DF190081EA9C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF7D5E51BB0DF190081EA9C /* AudioToolbox.framework */; };
@@ -108,9 +108,9 @@
 		4EC401AE1BAFC77000E4AF65 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		4EC401BD1BAFCA4E00E4AF65 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		4ECCEB1E1BB122C6009E1468 /* DishRackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishRackViewController.h; sourceTree = "<group>"; };
-		4ECCEB1F1BB122C6009E1468 /* DishRackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishRackViewController.m; sourceTree = "<group>"; };
 		4ECCEB211BB12328009E1468 /* DetailsOfDishesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsOfDishesViewController.h; sourceTree = "<group>"; };
 		4ECCEB221BB12328009E1468 /* DetailsOfDishesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsOfDishesViewController.m; sourceTree = "<group>"; };
+		4EF3E3CA1BCCD53900FF8759 /* DishRackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishRackViewController.m; sourceTree = "<group>"; };
 		4EF75AE71BBA717100824D6E /* SplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashView.h; sourceTree = "<group>"; };
 		4EF75AE81BBA717100824D6E /* SplashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashView.m; sourceTree = "<group>"; };
 		4EF7D5E31BB0DECB0081EA9C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -246,9 +246,9 @@
 			isa = PBXGroup;
 			children = (
 				4EC4017C1BAF94D700E4AF65 /* AppDelegate.h */,
+				4EC4017D1BAF94D700E4AF65 /* AppDelegate.m */,
 				4EFB7EB41BC7B1F500067825 /* ActivityTableViewCell.h */,
 				4EFB7EB21BC7B1C800067825 /* ActivityTableViewCell.m */,
-				4EC4017D1BAF94D700E4AF65 /* AppDelegate.m */,
 				4EF89ECA1BB2519C00780E58 /* ActivityObject.h */,
 				4EF89ECB1BB2519C00780E58 /* ActivityObject.m */,
 				4EC401781BAF94D700E4AF65 /* Supporting Files */,
@@ -311,7 +311,7 @@
 				4E339AC31BB13A40004D0CAE /* FeedbackViewController.h */,
 				4E339AC41BB13A40004D0CAE /* FeedbackViewController.m */,
 				4ECCEB1E1BB122C6009E1468 /* DishRackViewController.h */,
-				4ECCEB1F1BB122C6009E1468 /* DishRackViewController.m */,
+				4EF3E3CA1BCCD53900FF8759 /* DishRackViewController.m */,
 				4ECCEB211BB12328009E1468 /* DetailsOfDishesViewController.h */,
 				4ECCEB221BB12328009E1468 /* DetailsOfDishesViewController.m */,
 				4EA821491BB1316400497563 /* RecommendationViewController.h */,
@@ -528,9 +528,9 @@
 				4EF89EEA1BB2570700780E58 /* AFHTTPSessionManager.m in Sources */,
 				4EF89F131BB2571600780E58 /* NSData+ImageContentType.m in Sources */,
 				4EF89EEB1BB2570700780E58 /* AFNetworkReachabilityManager.m in Sources */,
-				4ECCEB201BB122C6009E1468 /* DishRackViewController.m in Sources */,
 				4EF89F1B1BB2571600780E58 /* UIButton+WebCache.m in Sources */,
 				4EF89F1A1BB2571600780E58 /* SDWebImagePrefetcher.m in Sources */,
+				4EF3E3CB1BCCD53900FF8759 /* DishRackViewController.m in Sources */,
 				4E339AC11BB139BC004D0CAE /* storageMgr.m in Sources */,
 				4E849D811BB2A0EF001BBF96 /* Item.m in Sources */,
 				4EFB7EB31BC7B1C800067825 /* ActivityTableViewCell.m in Sources */,

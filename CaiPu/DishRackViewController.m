@@ -11,8 +11,9 @@
 #import "UIImageView+WebCache.h"
 #import "HomeCell.h"
 #import "DetailsOfDishesViewController.h"
-@interface DishRackViewController ()
-- (IBAction)XiaDanButton:(UIBarButtonItem *)sender;
+
+@interface DishRackViewController (){  
+}
 
 
 @end
@@ -21,10 +22,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    count = 0;
     [self naviConfiguration];
     [self dataPreparation];
     [self uiConfiguration];
+    _tableView.allowsSelection = NO;
+    _tableView.allowsMultipleSelection = YES;
     
+    _priceLabeal = [[UILabel alloc] initWithFrame:CGRectMake(UI_SCREEN_W - 215, _piceview.frame.size.height / 2 - 15, 85, 30)];
+    _priceLabeal.textColor=[UIColor redColor];
+    
+    _priceLabeal.textAlignment = NSTextAlignmentRight;
+    _priceLabeal.textColor = [UIColor darkGrayColor];
+    _priceLabeal.text = @"";
+
+    [_piceview addSubview:_priceLabeal];
+
     // Do any additional setup after loading the view.
 }
 
@@ -32,43 +45,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"homeToXiang"]) {
-        //NSIndexPath *ip = _tableView.indexPathsForSelectedItems.firstObject;
-        PFObject *object = [_objectsForShow objectAtIndex:ip.row];
-        //获取指针并指向终点
-        DetailsOfDishesViewController *detailVC = segue.destinationViewController;
-        detailVC.item = object;
-        detailVC.hidesBottomBarWhenPushed = YES;
-    }
-}
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    HomeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ActivityCell" forIndexPath:indexPath];
-    
-    PFObject *object = [_objectsForShow objectAtIndex:indexPath.row];
-    
-    UIView *bv = [[UIView alloc] init];
-    bv.backgroundColor = [UIColor lightGrayColor];
-    cell.backgroundView = bv;
-    UIView *sbv = [[UIView alloc] init];
-    sbv.backgroundColor = [UIColor orangeColor];
-    cell.selectedBackgroundView = sbv;
-    
-    PFFile *imgFile = object[@"image"];
-    [imgFile getDataInBackgroundWithBlock:^(NSData *photoData, NSError *error) {
-        if (!error) {
-            UIImage *image = [UIImage imageWithData:photoData];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                cell.image.image = image;
-            });
-        }
-    }];
-    cell.name.text = object[@"Name"];
-    cell.price.text = [NSString stringWithFormat:@"%@", object[@"price"]];
-    
-    return cell;
-}
 
 - (void)naviConfiguration {
     NSDictionary* textTitleOpt = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil];
@@ -90,6 +67,7 @@
     loadCount = 1;
     perPage = 3;
     loadingMore = NO;
+    _aiv = [Utilities getCoverOnView:self.view];
     [self urlAction];
 }
 - (void)urlAction {
@@ -97,9 +75,10 @@
     [query includeKey:@"food"];
     //[query orderByDescending:@"price"];
     
-    UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
     [query findObjectsInBackgroundWithBlock:^(NSArray *returnedObjects, NSError *error) {
-        [aiv stopAnimating];
+        [_aiv stopAnimating];
+        UIRefreshControl *rc = (UIRefreshControl *)[_tableView viewWithTag:8001];
+        [rc endRefreshing];
         if (!error) {
             _objectsForShow = [NSMutableArray arrayWithArray:returnedObjects];
             [_tableView reloadData];
@@ -117,16 +96,13 @@
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     [style setAlignment:NSTextAlignmentCenter];
     [style setLineBreakMode:NSLineBreakByWordWrapping];
-    NSDictionary *attrsDictionary = @{NSUnderlineStyleAttributeName:@(NSUnderlineStyleNone),
-                                      NSFontAttributeName:[UIFont preferredFontForTextStyle:UIFontTextStyleBody],
-                                      NSParagraphStyleAttributeName:style,
-                                      NSForegroundColorAttributeName:[UIColor brownColor]};
+    NSDictionary *attrsDictionary = @{NSUnderlineStyleAttributeName:@(NSUnderlineStyleNone),NSFontAttributeName:[UIFont preferredFontForTextStyle:UIFontTextStyleBody],NSParagraphStyleAttributeName:style,NSForegroundColorAttributeName:[UIColor brownColor]};
     NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
     refreshControl.attributedTitle = attributedTitle;
     refreshControl.tintColor = [UIColor brownColor];
     refreshControl.backgroundColor = [UIColor groupTableViewBackgroundColor];
     refreshControl.tag = 8001;
-    [refreshControl addTarget:self action:@selector(initializeData) forControlEvents:UIControlEventValueChanged];
+    [refreshControl addTarget:self action:@selector(urlAction) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:refreshControl];
     self.tableView.tableFooterView = [[UIView alloc] init];
 }
@@ -138,8 +114,40 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-         // Return the number of rows in the section.
-         return _objectsForShow.count;
+    return _objectsForShow.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (count % 2 == 0) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    } else {
+        CGFloat total = 0.f;
+        NSArray *indexPaths = tableView.indexPathsForSelectedRows;
+        for (NSIndexPath *ipip in indexPaths) {
+            PFObject *obj = [_objectsForShow objectAtIndex:ipip.row];
+            PFObject *food = obj[@"food"];
+            CGFloat price = [food[@"price"] floatValue] * [obj[@"amount"] floatValue];
+            total += price;
+        }
+        NSLog(@"总价 = %f", total);
+        _priceLabeal.text = [Utilities notRounding:total afterPoint:2];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (count % 2 == 1) {
+        CGFloat total = 0.f;
+        NSArray *indexPaths = tableView.indexPathsForSelectedRows;
+        for (NSIndexPath *ipip in indexPaths) {
+            PFObject *obj = [_objectsForShow objectAtIndex:ipip.row];
+            PFObject *food = obj[@"food"];
+            CGFloat price = [food[@"price"] floatValue] * [obj[@"amount"] floatValue];
+            total += price;
+        }
+        NSLog(@"总价 = %f", total);
+        _priceLabeal.text = [Utilities notRounding:total afterPoint:2];
+
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -161,6 +169,7 @@
     CGFloat price= [food[@"price"] floatValue] * [object[@"amount"] floatValue];
     NSString *priceStr = [Utilities notRounding:price afterPoint:2];
     cell.priceLabel.text = [NSString stringWithFormat:@"价格：%@", priceStr];
+    //NSString *feng=object[@"amount"];
     NSString *like=food[@"like"] ;
      NSString *unlike=food[@"unlike"] ;
     NSString *kind=food[@"kind"];
@@ -172,109 +181,57 @@
             });
         }
     }];
-    
+   
     cell.NameLabel.text = food[@"Name"];
     cell.ContentLabel.text = food[@"xiangqing"];
     cell.LikeLabel.text=[NSString stringWithFormat:@"👌：%@", like];
     cell.UnlikeLabel.text=[NSString stringWithFormat:@"👌：%@", unlike];
     cell.kindLabel.text=[NSString stringWithFormat:@"菜系：%@", kind];
+
     return cell;
      }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-         PFObject *object = [_objectsForShow objectAtIndex:indexPath.row];
-    PFObject *food = object[@"food"];
-         ActivityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCell"];
-         CGSize maxSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width - 30, 1000);
-         CGSize contentLabelSize = [food[@"xiangqing"] boundingRectWithSize:maxSize options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:cell.ContentLabel.font} context:nil].size;
-         return cell.ContentLabel.frame.origin.y + contentLabelSize.height + 10;
-     }
-     
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//     }
+    return 120;
+}
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-         if (scrollView.contentSize.height > scrollView.frame.size.height) {
-             if (!loadingMore && scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.size.height)) {
-                 [self loadDataBegin];
-             }
-         } else {
-             if (!loadingMore && scrollView.contentOffset.y > 0) {
-                 [self loadDataBegin];
-             }
-         }
-     }
-     
-     - (void)loadDataBegin {
-         if (loadingMore == NO) {
-             loadingMore = YES;
-             [self createTableFooter];
-             _tableFooterAI = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake((UI_SCREEN_W - 86.0f) / 2 - 30.0f, 10.0f, 20.0f, 20.0f)];
-             [_tableFooterAI setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
-             [self.tableView.tableFooterView addSubview:_tableFooterAI];
-             [_tableFooterAI startAnimating];
-             [self loadDataing];
-         }
-     }
-     
-     - (void)loadDataing {
-         if (totalPage > loadCount) {
-             loadCount ++;
-             [self urlAction];
-         } else {
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        PFObject *cj = [_objectsForShow objectAtIndex:indexPath.row];
+        
+        [cj deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                [_objectsForShow removeObjectAtIndex:indexPath.row];
+                
+                [_tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                //[_tableView respondsToSelector:YES];
+            }
+        }];
+    }
+}
+
+- (void)loadDataing {
+    if (totalPage > loadCount) {
+        loadCount ++;
+        [self urlAction];
+} else {
              [self performSelector:@selector(beforeLoadEnd) withObject:nil afterDelay:0.25];
-         }
+        }
      }
-     
-     - (void)beforeLoadEnd {
-         UILabel *label = (UILabel *)[self.tableView.tableFooterView viewWithTag:9001];
-         [label setText:@"当前已无更多数据"];
-         [_tableFooterAI stopAnimating];
-         _tableFooterAI = nil;
-         [self performSelector:@selector(loadDataEnd) withObject:nil afterDelay:0.25];
+- (void)beforeLoadEnd {
+    UILabel *label = (UILabel *)[self.tableView.tableFooterView viewWithTag:9001];
+    [label setText:@"当前已无更多数据"];
+    [_tableFooterAI stopAnimating];
+    _tableFooterAI = nil;
+    [self performSelector:@selector(loadDataEnd) withObject:nil afterDelay:0.25];
      }
-     
-     - (void)loadDataEnd {
-         self.tableView.tableFooterView = [[UIView alloc] init];
-         loadingMore = NO;
-     }
-     
-     - (void)createTableFooter {
-         UIView *tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.bounds.size.width, 40.0f)];
-         UILabel *loadMoreText = [[UILabel alloc] initWithFrame:CGRectMake((UI_SCREEN_W - 86.0f) / 2, 0.0f, 116.0f, 40.0f)];
-         loadMoreText.tag = 9001;
-         [loadMoreText setFont:[UIFont systemFontOfSize:B_Font]];
-         [loadMoreText setText:@"上拉显示更多数据"];
-         [tableFooterView addSubview:loadMoreText];
-         loadMoreText.textColor = [UIColor grayColor];
-         self.tableView.tableFooterView = tableFooterView;
-     }
-     
-     - (NSMutableAttributedString *)setAttributedStringWithFirstText:(NSString *)first andSecondText:(NSString *)second {
-         NSMutableParagraphStyle *styleL = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-         [styleL setAlignment:NSTextAlignmentLeft];
-         [styleL setLineBreakMode:NSLineBreakByWordWrapping];
-         NSMutableParagraphStyle *styleR = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-         [styleR setAlignment:NSTextAlignmentRight];
-         [styleR setLineBreakMode:NSLineBreakByWordWrapping];
-         UIFont *font = [UIFont systemFontOfSize:11];
-         
-         NSDictionary *dictL = @{NSUnderlineStyleAttributeName:@(NSUnderlineStyleNone),
-                                 NSFontAttributeName:font,
-                                 NSParagraphStyleAttributeName:styleL,
-                                 NSForegroundColorAttributeName:[UIColor lightGrayColor]
-                                 };
-         NSDictionary *dictR = @{NSUnderlineStyleAttributeName:@(NSUnderlineStyleNone),
-                                 NSFontAttributeName:font,
-                                 NSParagraphStyleAttributeName:styleR,
-                                 NSForegroundColorAttributeName:[UIColor brownColor]
-                                 };
-         
-   NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] init];
-   [attString appendAttributedString:[[NSAttributedString alloc] initWithString:first attributes:dictL]];
-    [attString appendAttributedString:[[NSAttributedString alloc] initWithString:second attributes:dictR]];
-         return attString;
-     }
+- (void)loadDataEnd {
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    loadingMore = NO;
+}
 - (void)photoTapAtIndexPath:(NSIndexPath *)indexPath {
     //ActivityObject *object = [_objectsForShow objectAtIndex:indexPath.row];
     PFObject *object = [_objectsForShow objectAtIndex:indexPath.row];
@@ -290,7 +247,7 @@
             });
         }
     }];
-    //_zoomedIV.image = [Utilities imageUrl:object.imgUrl];
+
     _zoomedIV.contentMode = UIViewContentModeScaleAspectFit;
     _zoomedIV.backgroundColor = [UIColor blackColor];
     UITapGestureRecognizer *ivTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ivTap:)];
@@ -314,31 +271,49 @@
     }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
-        if ([[_objectsForShow objectAtIndex:ip.row] applied]) {
-            [[_objectsForShow objectAtIndex:ip.row] setApplied:NO];
-        } else {
-            [[_objectsForShow objectAtIndex:ip.row] setApplied:YES];
-        }
-        [self.tableView reloadRowsAtIndexPaths:@[ip] withRowAnimation:UITableViewRowAnimationFade];
-    }
-}
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+//    if (buttonIndex == 1) {
+//        if ([[_objectsForShow objectAtIndex:ip.row] applied]) {
+//            [[_objectsForShow objectAtIndex:ip.row] setApplied:NO];
+//        } else {
+//            [[_objectsForShow objectAtIndex:ip.row] setApplied:YES];
+//        }
+//        [self.tableView reloadRowsAtIndexPaths:@[ip] withRowAnimation:UITableViewRowAnimationFade];
+//    }
+//}
 
 
 - (IBAction)BianjiButton:(UIBarButtonItem *)sender {
     if (++ count % 2 == 1) {
         _tableView.allowsSelection = YES;
+        [_tableView setEditing:YES animated:YES];
         _editBarButtonItem.title = @"取消";
     } else {
+        _priceLabeal.text = @"";
         _tableView.allowsSelection = NO;
-        _editBarButtonItem.title = @"编辑";
+        [_tableView setEditing:NO animated:YES];
+        _editBarButtonItem.title = @"选单";
     }
+    
+}
 
+- (IBAction)jiesuanButton:(UIButton *)sender {
+    if ([_priceLabeal.text isEqualToString:@""]) {
+        [Utilities  popUpAlertViewWithMsg:@"请选择一种需要的餐点！" andTitle:nil] ;
+        return;
+    }
+    else{
+        UIAlertView *promptAlert = [[UIAlertView alloc] initWithTitle:@"提示:" message:[NSString stringWithFormat:@"您将消费%@元", _priceLabeal.text] delegate:self cancelButtonTitle:@"取消"otherButtonTitles:@"确定",nil];
+    [promptAlert show];
+}
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        [Utilities  popUpAlertViewWithMsg:@"本次消费成功，请稍等！" andTitle:nil] ;
+        return;
+    }
     
 }
-- (IBAction)XiaDanButton:(UIBarButtonItem *)sender {
-    
-    
-}
+
+
 @end

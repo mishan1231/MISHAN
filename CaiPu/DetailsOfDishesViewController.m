@@ -7,7 +7,7 @@
 //
 
 #import "DetailsOfDishesViewController.h"
-
+#import "DishRackViewController.h"
 
 @interface DetailsOfDishesViewController () {
     CGFloat price;
@@ -15,7 +15,8 @@
 - (IBAction)jianButton:(UIButton *)sender;
 - (IBAction)jiaButton:(UIButton *)sender;
 - (IBAction)joinAddButton:(UIButton *)sender forEvent:(UIEvent *)event;
-- (IBAction)MoveButton:(UIButton *)sender forEvent:(UIEvent *)event;
+
+
 
 @end
 
@@ -33,9 +34,6 @@
     NSLog(@"%@", _item);
     PFFile *photo = _item[@"image"];
     [photo getDataInBackgroundWithBlock:^(NSData *photoData, NSError *error) {
-        //NSString *price = _priceLabel.text;
-        //NSString *describe = _describeLabel.text;
-        
         if (!error) {
             UIImage *image = [UIImage imageWithData:photoData];
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -48,16 +46,6 @@
     _DanLabel.text = [NSString stringWithFormat:@"%@", _item[@"danwei"]];
     price = [_priceLabel.text floatValue];
    
-    
-    
-//    NSData *photoData = UIImagePNGRepresentation(_photoIV.image);
-//    PFFile *photoFile = [PFFile fileWithName:@"photo.png" data:photoData];
-//    item1[@"photo"] = photoFile;
-    
-    
-    
-
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,44 +85,24 @@
     PFObject *cj = [PFObject objectWithClassName:@"caijia"];
     cj[@"food"] = _item;
     cj[@"amount"] = _TextFile.text;
-    
-    UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
-    onLoading = YES;
-    [cj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        [aiv stopAnimating];
-        if (succeeded) {
-            [Utilities popUpAlertViewWithMsg:@"成功加入菜架" andTitle:nil];
-        } else {
-            [Utilities popUpAlertViewWithMsg:@"加入菜架失败！" andTitle:nil];
-        }
-    }];
-    
-    
-    
-}
-
-
-
-
-
-- (IBAction)MoveButton:(UIButton *)sender forEvent:(UIEvent *)event {
-    
-    PFObject *cj = [PFObject objectWithClassName:@"caijia"];
-    cj[@"food"] = _item;
-    cj[@"amount"] = _TextFile.text;
-    
+    cj[@"data"]=[NSDate date];
     UIActivityIndicatorView *aiv = [Utilities getCoverOnView:self.view];
     [cj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [aiv stopAnimating];
         if (succeeded) {
             [Utilities popUpAlertViewWithMsg:@"成功加入菜架" andTitle:nil];
-        } else {
-            [Utilities popUpAlertViewWithMsg:@"加入菜架失败！" andTitle:nil];
+} else {
+            [Utilities popUpAlertViewWithMsg:@"" andTitle:nil];
         }
     }];
     
-
-    
-    
 }
+
+//- (IBAction)caijiaGoTo:(UIBarButtonItem *)sender {
+    //DishRackViewController *vc = [Utilities getStoryboardInstanceByIdentity:@"dish"];
+    //UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
+    //vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    //[self presentViewController:navi animated:YES completion:nil];
+    //[self.navigationController popToViewController:vc animated:YES];
+//}
 @end

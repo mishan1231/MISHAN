@@ -211,7 +211,6 @@
     }];
     cell.name.text = object[@"Name"];
     cell.price.text = [NSString stringWithFormat:@"%@", object[@"price"]];
-    
     return cell;
 }
 

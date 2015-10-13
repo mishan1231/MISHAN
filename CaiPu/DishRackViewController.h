@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import"ActivityTableViewCell.h"
 #import "Constants.h"
-@interface DishRackViewController : UIViewController<ActivityTableViewCellDelegate, UIActionSheetDelegate> {
+#import"DishRackViewController.h"
+@interface DishRackViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, ActivityTableViewCellDelegate, UIActionSheetDelegate> {
     NSIndexPath *ip;
     BOOL loadingMore;
     NSInteger loadCount;
@@ -25,5 +26,10 @@
 @property (strong, nonatomic) PFObject *item;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editBarButtonItem;
 @property (strong, nonatomic) NSMutableArray *objectsForShow;
+@property (weak, nonatomic) IBOutlet UIView *piceview;
+@property (strong, nonatomic) UILabel *priceLabeal;
+
+
+
 
 @end
