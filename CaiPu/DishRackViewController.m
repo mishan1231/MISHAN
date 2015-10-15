@@ -187,7 +187,6 @@
     cell.LikeLabel.text=[NSString stringWithFormat:@"👌：%@", like];
     cell.UnlikeLabel.text=[NSString stringWithFormat:@"👌：%@", unlike];
     cell.kindLabel.text=[NSString stringWithFormat:@"菜系：%@", kind];
-
     return cell;
      }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -309,7 +308,8 @@
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1) {
-        [Utilities  popUpAlertViewWithMsg:@"本次消费成功，请稍等！" andTitle:nil] ;
+        UIAlertView *proptAlert = [[UIAlertView alloc] initWithTitle:@"提示:" message:@"本次消费成功，请稍后！" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定",nil];
+     [proptAlert show];
         return;
     }
     

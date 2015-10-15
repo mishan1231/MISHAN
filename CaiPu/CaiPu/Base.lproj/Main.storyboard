@@ -281,7 +281,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcq-t0-i7M">
                                                     <rect key="frame" x="62" y="176" width="26" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="1" green="0.087300675620000004" blue="0.13684076419999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -538,19 +538,11 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sl7-Mt-THf">
-                                                    <rect key="frame" x="250" y="64" width="9" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="sev-Kf-lWg" firstAttribute="top" secondItem="ZMy-gp-fiP" secondAttribute="top" constant="17" id="4Cd-ur-8XW"/>
                                                 <constraint firstItem="GS3-8N-CqX" firstAttribute="leading" secondItem="lmJ-xn-9mO" secondAttribute="trailing" constant="15" id="Bio-ck-hwM"/>
                                                 <constraint firstItem="lmJ-xn-9mO" firstAttribute="top" secondItem="ZMy-gp-fiP" secondAttribute="top" id="EE7-JI-xcP"/>
-                                                <constraint firstItem="sl7-Mt-THf" firstAttribute="top" secondItem="cbp-FQ-xak" secondAttribute="bottom" constant="12" id="Euj-0v-eA6"/>
-                                                <constraint firstItem="sl7-Mt-THf" firstAttribute="leading" secondItem="8N7-Oy-IYb" secondAttribute="trailing" constant="52" id="Fac-we-NQf"/>
                                                 <constraint firstItem="Sip-ML-OHv" firstAttribute="leading" secondItem="lmJ-xn-9mO" secondAttribute="trailing" constant="15" id="GuS-FF-W5H"/>
                                                 <constraint firstItem="lmJ-xn-9mO" firstAttribute="leading" secondItem="ZMy-gp-fiP" secondAttribute="leading" constant="8" id="KI0-E6-mf6"/>
                                                 <constraint firstItem="8N7-Oy-IYb" firstAttribute="leading" secondItem="lmJ-xn-9mO" secondAttribute="trailing" constant="15" id="NXr-3W-Id0"/>
@@ -574,7 +566,6 @@
                                             <outlet property="PhotoView" destination="lmJ-xn-9mO" id="kLZ-O9-DAJ"/>
                                             <outlet property="UnlikeLabel" destination="3NQ-H8-Rw9" id="17G-WF-EA3"/>
                                             <outlet property="danweiLabel" destination="AqL-5X-4lg" id="3aB-1P-ekT"/>
-                                            <outlet property="fengLabel" destination="sl7-Mt-THf" id="n5G-8R-7DR"/>
                                             <outlet property="kindLabel" destination="Sip-ML-OHv" id="6r4-Af-ZWX"/>
                                             <outlet property="priceLabel" destination="8N7-Oy-IYb" id="wau-RJ-dkX"/>
                                         </connections>
@@ -915,6 +906,6 @@
         <image name="4" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9NR-QB-iWs"/>
+        <segue reference="MOV-is-w8t"/>
     </inferredMetricsTieBreakers>
 </document>

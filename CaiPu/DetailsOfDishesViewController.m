@@ -90,9 +90,10 @@
     [cj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [aiv stopAnimating];
         if (succeeded) {
-            [Utilities popUpAlertViewWithMsg:@"成功加入菜架" andTitle:nil];
+            UIAlertView *proptAlert = [[UIAlertView alloc] initWithTitle:@"提示:" message:@"成功加入菜架！" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定",nil];
+            [proptAlert show];
 } else {
-            [Utilities popUpAlertViewWithMsg:@"" andTitle:nil];
+            [Utilities popUpAlertViewWithMsg:@"加入菜架失败，请重试！" andTitle:nil];
         }
     }];
     

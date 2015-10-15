@@ -51,16 +51,17 @@
 - (IBAction)Feedbutton:(UIButton *)sender forEvent:(UIEvent *)event {
     NSString *text=_TextView.text;
     if ([text isEqualToString:@""]) {
-        [Utilities  popUpAlertViewWithMsg:@"对不起！您输入的内容为空，请重新输入。" andTitle:nil] ;
+        UIAlertView *propmtAlert = [[UIAlertView alloc] initWithTitle:@"提示:" message:@"对不起！您输入的内容为空，请重新输入。" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定",nil];
+        [propmtAlert show];
+
         return;
     }
     else{
-    [Utilities popUpAlertViewWithMsg:@"感谢您的宝贵建议，本店会慎重考虑！" andTitle:nil];
-               
+        _TextView.text=@"";
+        UIAlertView *proptAlert = [[UIAlertView alloc] initWithTitle:@"提示:" message:@"感谢您的宝贵建议，本店会慎重考虑！" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定",nil];
+        [proptAlert show];
+        return;
         
     }
-    
-    
-    
 }
 @end
